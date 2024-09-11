@@ -4,4 +4,4 @@
 
 .ORG $6700
 UNKNOWN_6700: ;$6700
-	.RES 2
+    .RES 2

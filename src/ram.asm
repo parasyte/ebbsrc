@@ -8,70 +8,70 @@ UNKNOWN_0100:
 
 .ORG $0540
 UNKNOWN_0540:
-	.RES 2*13
+    .RES 2*13
 
 .ORG $0792
 UNKNOWN_0792:
-	.RES 2 * 4
+    .RES 2 * 4
 UNKNOWN_079A:
-	.RES 1 * 3
+    .RES 1 * 3
 UNKNOWN_079D:
-	.RES 1 * 3
+    .RES 1 * 3
 UNKNOWN_07A0:
-	.RES 2 * 4
+    .RES 2 * 4
 UNKNOWN_07A8:
-	.RES 4
+    .RES 4
 UNKNOWN_07AC:
-	.RES 4
+    .RES 4
 UNKNOWN_07B0:
-	.RES 4
+    .RES 4
 UNKNOWN_07B4:
-	.RES 4
+    .RES 4
 UNKNOWN_07B8:
-	.RES 4
+    .RES 4
 UNKNOWN_07BC:
-	.RES 4
+    .RES 4
 UNKNOWN_07C0:
-	.RES 1
+    .RES 1
 UNKNOWN_07C1:
-	.RES 1
+    .RES 1
 ;unused?
-	.RES 1
+    .RES 1
 UNKNOWN_07C3:
-	.RES 4
+    .RES 4
 UNKNOWN_07C7:
-	.RES 4
+    .RES 4
 ;unused?
-	.RES 1
+    .RES 1
 UNKNOWN_07CC:
-	.RES 1
+    .RES 1
 UNKNOWN_07CD:
-	.RES 4
+    .RES 4
 UNKNOWN_07D1:
-	.RES 4
+    .RES 4
 UNKNOWN_07D5:
-	.RES 5
+    .RES 5
 UNKNOWN_07DA:
-	.RES 5
+    .RES 5
 UNKNOWN_07DF:
-	.RES 4
+    .RES 4
 UNKNOWN_07E3:
-	.RES 4
+    .RES 4
 UNKNOWN_07E7:
-	.RES 4
+    .RES 4
 ;unused?
-	.RES 4
+    .RES 4
 UNKNOWN_07EF:
-	.RES 6
+    .RES 6
 UNKNOWN_07F5:
-	.RES 1
+    .RES 1
 ;unused?
-	.RES 1
+    .RES 1
 UNKNOWN_07F7:
-	.RES 1
+    .RES 1
 UNKNOWN_07F8:
-	.RES 6
+    .RES 6
 ;unused?
-	.RES 1
+    .RES 1
 UNKNOWN_07FF:
-	.RES 1
+    .RES 1
