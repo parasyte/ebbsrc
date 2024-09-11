@@ -17,8 +17,5 @@ earthbound.nes: $(patsubst %.asm, %.o, $(USSRCS))
 
 depsusa: $(USSRCS:.asm=.dep)
 
-extract:
-	dub run ebbinex -- "donor.nes" "src/bin"
-
 %.o: %.asm
 	ca65 ${CA65FLAGS} --listing "$(patsubst %.o,%.lst,$@)" -o $@ $<
