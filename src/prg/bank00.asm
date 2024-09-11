@@ -229,29 +229,29 @@ PSI_NAME_1:
 PSI_NAME_2:
 	EBBTEXTZ "Teleport"
 PSI_NAME_3:
-	EBBTEXTZ "LifeUp *"
+	EBBTEXTZ "LifeUp ;" ; Alpha
 PSI_NAME_4:
-	EBBTEXTZ "LifeUp ["
+	EBBTEXTZ "LifeUp <" ; Beta
 PSI_NAME_5:
-	EBBTEXTZ "LifeUp ]"
+	EBBTEXTZ "LifeUp =" ; Gamma
 PSI_NAME_6:
-	EBBTEXTZ "LifeUp #"
+	EBBTEXTZ "LifeUp >" ; Pi
 PSI_NAME_7:
-	EBBTEXTZ "LifeUp _"
+	EBBTEXTZ "LifeUp ?" ; Omega
 PSI_NAME_8:
-	EBBTEXTZ "Healing *"
+	EBBTEXTZ "Healing ;" ; Alpha
 PSI_NAME_9:
-	EBBTEXTZ "Healing ["
+	EBBTEXTZ "Healing <" ; Beta
 PSI_NAME_10:
-	EBBTEXTZ "Healing ]"
+	EBBTEXTZ "Healing =" ; Gamma
 PSI_NAME_11:
-	EBBTEXTZ "Healing #"
+	EBBTEXTZ "Healing >" ; Pi
 PSI_NAME_12:
 	EBBTEXTZ "SuprHealing"
 PSI_NAME_13:
-	EBBTEXTZ "PSIShield *"
+	EBBTEXTZ "PSIShield ;" ; Alpha
 PSI_NAME_14:
-	EBBTEXTZ "PSIShield ["
+	EBBTEXTZ "PSIShield <" ; Beta
 PSI_NAME_15:
 	EBBTEXTZ "PowerShield"
 PSI_NAME_16:
@@ -273,47 +273,47 @@ PSI_NAME_23:
 PSI_NAME_24:
 	EBBTEXTZ "OffenseUp"
 PSI_NAME_25:
-	EBBTEXTZ "DefenseUp *"
+	EBBTEXTZ "DefenseUp ;" ; Alpha
 PSI_NAME_26:
-	EBBTEXTZ "DefenseUp ["
+	EBBTEXTZ "DefenseUp <" ; Beta
 PSI_NAME_27:
 	EBBTEXTZ "QuickUp"
 PSI_NAME_28:
-	EBBTEXTZ "Def.Down *"
+	EBBTEXTZ "Def.Down ;" ; Alpha
 PSI_NAME_29:
-	EBBTEXTZ "Def.Down ["
+	EBBTEXTZ "Def.Down <" ; Beta
 PSI_NAME_30:
 	EBBTEXTZ "4th-D Slip"
 PSI_NAME_31:
-	EBBTEXTZ "PK Freeze *"
+	EBBTEXTZ "PK Freeze ;" ; Alpha
 PSI_NAME_32:
-	EBBTEXTZ "PK Freeze ["
+	EBBTEXTZ "PK Freeze <" ; Beta
 PSI_NAME_33:
-	EBBTEXTZ "PK Freeze ]"
+	EBBTEXTZ "PK Freeze =" ; Gamma
 PSI_NAME_34:
-	EBBTEXTZ "PK Freeze _"
+	EBBTEXTZ "PK Freeze ?" ; Omega
 PSI_NAME_35:
-	EBBTEXTZ "PK Fire *"
+	EBBTEXTZ "PK Fire ;" ; Alpha
 PSI_NAME_36:
-	EBBTEXTZ "PK Fire ["
+	EBBTEXTZ "PK Fire <" ; Beta
 PSI_NAME_37:
-	EBBTEXTZ "PK Fire ]"
+	EBBTEXTZ "PK Fire =" ; Gamma
 PSI_NAME_38:
-	EBBTEXTZ "PK Fire _"
+	EBBTEXTZ "PK Fire ?" ; Omega
 PSI_NAME_39:
-	EBBTEXTZ "PK Beam *"
+	EBBTEXTZ "PK Beam ;" ; Alpha
 PSI_NAME_40:
-	EBBTEXTZ "PK Beam ["
+	EBBTEXTZ "PK Beam <" ; Beta
 PSI_NAME_41:
-	EBBTEXTZ "PK Beam ]"
+	EBBTEXTZ "PK Beam =" ; Gamma
 PSI_NAME_42:
-	EBBTEXTZ "PK Beam _"
+	EBBTEXTZ "PK Beam ?" ; Omega
 PSI_NAME_43:
-	EBBTEXTZ "PK Thunder*"
+	EBBTEXTZ "PK Thunder;" ; Alpha
 PSI_NAME_44:
-	EBBTEXTZ "PK Thunder["
+	EBBTEXTZ "PK Thunder<" ; Beta
 PSI_NAME_45:
-	EBBTEXTZ "PK Thunder]"
+	EBBTEXTZ "PK Thunder=" ; Gamma
 
 STATUS_NAMES:
 STATUS_1:
