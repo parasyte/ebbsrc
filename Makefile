@@ -1,4 +1,9 @@
+.PHONY: all
 all: earthboundzero
+
+.PHONY: clean
+clean:
+	rm -f earthbound.nes src/*.dep src/*.lst src/**/*.dep src/**/*.lst
 
 earthboundzero: depsusa earthbound.nes
 
@@ -12,8 +17,8 @@ USSRCS = $(wildcard $(USSRCDIR)/*.asm) src/chr/chr.asm src/header.asm src/ram.as
 
 include $(wildcard $(USSRCDIR)/*.dep)
 
-earthbound.nes: $(patsubst %.asm, %.o, $(USSRCS))
-	ld65 -o $@ -C nes.cfg $^
+earthbound.nes: nes.cfg $(patsubst %.asm, %.o, $(USSRCS))
+	ld65 -o $@ -C $^
 
 depsusa: $(USSRCS:.asm=.dep)
 
