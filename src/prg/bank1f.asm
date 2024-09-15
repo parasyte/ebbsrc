@@ -1914,7 +1914,11 @@ UNKNOWN_ECF2:
 
 UNKNOWN_ECFC:
     LDX #$FC
-    BIT $04A2
+; This is a cursed anti-decompilation technique. External code jumps into the middle of a `BIT`
+; instruction during battle scenes to assert dominance.
+    .BYTE $2C ; BIT $04A2
+UNKNOWN_ECFF:
+    LDX #$04
     JSR UNKNOWN_FD33
     STX $E9
     LDX #$14
@@ -2696,7 +2700,7 @@ UNKNOWN_F202:
     JSR UNKNOWN_FD5E
     JSR UNKNOWN_FD80
     JSR UNKNOWN_EC65
-    JSR $A000
+    JSR UNKNOWN_17A000
     JSR UNKNOWN_ECA3
     RTS
 
@@ -2815,6 +2819,8 @@ UNKNOWN_F2AE:
     TXA
     PHA
     JMP ($0062)
+
+UNKNOWN_F2D5:
     ASL
     TAY
     INY
@@ -2889,7 +2895,7 @@ UNKNOWN_F2ED:
     PLA
     ADC $62
     STA $62
-    JMP $F355
+    JMP @UNKNOWN2
 @UNKNOWN1:
     PLA
     SBC $60
@@ -2900,13 +2906,14 @@ UNKNOWN_F2ED:
     PLA
     SBC $62
     STA $62
-    LDX #$06
 @UNKNOWN2:
+    LDX #$06
+@UNKNOWN3:
     LSR $62
     ROR $61
     ROR $60
     DEX
-    BNE @UNKNOWN2
+    BNE @UNKNOWN3
     PLA
     ORA $61
     STA $61
@@ -3068,6 +3075,8 @@ UNKNOWN_F4B8:
     BPL @UNKNOWN0
     JSR UNKNOWN_F4A3
     JMP UNKNOWN_FD41
+
+UNKNOWN_F4CE:
     ASL
     STA $60
     TXA
@@ -3099,26 +3108,26 @@ UNKNOWN_F4B8:
     TAX
 @UNKNOWN2:
     STX $63
-UNKNOWN_F502:
+@UNKNOWN3:
     INY
     LDA ($60),Y
     LDX #$00
     CMP #$FC
-    BEQ @UNKNOWN3
+    BEQ @UNKNOWN4
     LDX #$01
     CMP #$FD
-    BEQ @UNKNOWN3
+    BEQ @UNKNOWN4
     LDX #$02
     CMP #$FE
-    BEQ @UNKNOWN3
-    CMP #$FF
     BEQ @UNKNOWN4
+    CMP #$FF
+    BEQ @UNKNOWN5
     JSR UNKNOWN_F52E
-    JMP UNKNOWN_F502
-@UNKNOWN3:
-    STX $67
-    JMP UNKNOWN_F502
+    JMP @UNKNOWN3
 @UNKNOWN4:
+    STX $67
+    JMP @UNKNOWN3
+@UNKNOWN5:
     JSR UNKNOWN_F239
     PLA
     TAY
@@ -3465,6 +3474,8 @@ UNKNOWN_F759:
     LDA #$00
     STA $D7
     JMP UNKNOWN_FD41
+
+UNKNOWN_F760:
     LDA #$01
     STA $5A
     RTS
@@ -4438,6 +4449,7 @@ UNKNOWN_FDF3:
     TYA
     LDX #$07
     JMP BANK_SWAP
+
     PLA
     LDX #$07
     JMP BANK_SWAP

@@ -2,4 +2,4776 @@
 
 .INCLUDE "common.asm"
 
-.INCBIN "bin/17.bin"
+UNKNOWN_17A000:
+    LDA #$00
+    STA $DA
+    STA $DB
+    STA $52
+    STA $59
+    STA $49
+    STA $4A
+    STA $4B
+    STA $4C
+    STA $4D
+    TAX
+@LOCAL_1:
+    STA $0600,X
+    INX
+    BNE @LOCAL_1
+    LDX #$1F
+@LOCAL_2:
+    STA $0580,X
+    DEX
+    BPL @LOCAL_2
+    LDA #$00
+    STA $53
+    LDX #$00
+@LOCAL_3:
+    TXA
+    PHA
+    LDA $7408,X
+    BEQ @LOCAL_4
+    JSR UNKNOWN_17A1DD
+    CLC
+    LDA $53
+    ADC #$20
+    STA $53
+@LOCAL_4:
+    PLA
+    TAX
+    INX
+    CPX #$04
+    BNE @LOCAL_3
+    JSR UNKNOWN_F479
+    LDA #$80
+    STA $53
+    LDY #$00
+@LOCAL_5:
+    LDA ($5C),Y
+    STA $60
+    INY
+    LDA ($5C),Y
+    STA $61
+    INY
+    TYA
+    PHA
+    LDA $60
+    CMP #$FF
+    BEQ @LOCAL_6
+    JSR UNKNOWN_17A22D
+@LOCAL_6:
+    CLC
+    LDA $53
+    ADC #$20
+    STA $53
+    PLA
+    TAY
+    CPY #$08
+    BNE @LOCAL_5
+    LDA ($5C),Y
+    AND #$E0
+    LDX #$05
+@LOCAL_7:
+    LSR
+    DEX
+    BNE @LOCAL_7
+    STA $56
+    LDA ($5C),Y
+    AND #$1F
+    STA $5A
+    INY
+    LDA ($5C),Y
+    AND #$0F
+    STA $60
+    LDA #$00
+    LDX #$05
+@LOCAL_8:
+    ASL $60
+    ROL
+    DEX
+    BNE @LOCAL_8
+    STA $61
+    CLC
+    LDA #$81
+    ADC $60
+    STA $60
+    LDA #$8E
+    ADC $61
+    STA $61
+    JSR UNKNOWN_F247
+    JSR UNKNOWN_F496
+    JSR UNKNOWN_F239
+    LDX #$23
+    LDY #$C0
+    JSR UNKNOWN_17A3D2
+    LDX #$2B
+    LDY #$C0
+    JSR UNKNOWN_17A3D2
+    JSR UNKNOWN_F5E5
+    LDA #$00
+    STA $5B
+    LDA #$80
+    STA $53
+@LOCAL_9:
+    LDX $53
+    LDA $0600,X
+    BEQ @LOCAL_10
+    JSR UNKNOWN_17A28A
+@LOCAL_10:
+    INC $5B
+    CLC
+    LDA $53
+    ADC #$20
+    STA $53
+    BCC @LOCAL_9
+    LDY #$00
+    LDX #$00
+@LOCAL_11:
+    LDA $0580,Y
+    INY
+    ORA $0580,Y
+    STA $60
+    INY
+    LDA $0580,Y
+    INY
+    ORA $0580,Y
+    ASL
+    ASL
+    ORA $60
+    STA $60
+    ASL
+    ASL
+    ASL
+    ASL
+    ORA $60
+    STA $0580,X
+    INY
+    INX
+    CPX #$08
+    BNE @LOCAL_11
+    JSR UNKNOWN_FD33
+    LDA #$05
+    STA $0400
+    LDA #$10
+    STA $0401
+    LDY #$00
+    LDX #$04
+@LOCAL_12:
+    LDA $0580,Y
+    STA $0400,X
+    STA $0408,X
+    INY
+    INX
+    CPY #$08
+    BNE @LOCAL_12
+    LDA #$00
+    STA $0408,X
+    LDA #$80
+    STA $E5
+    LDA #$23
+    STA $0402
+    LDA #$D8
+    STA $0403
+    LDA #$00
+    STA $E6
+    LDA #$00
+    STA $47
+    STA $48
+    LDX #$80
+@LOCAL_13:
+    TXA
+    PHA
+    LDY #$04
+@LOCAL_14:
+    LDA $0604,X
+    AND #$03
+    STA $0604,X
+    INX
+    INX
+    DEY
+    BNE @LOCAL_14
+    PLA
+    CLC
+    ADC #$20
+    TAX
+    BNE @LOCAL_13
+    LDX #$00
+    LDA $56
+    CMP #$01
+    BNE @LOCAL_15
+    LDX #$04
+    LDA #$FF
+    STA $0683
+    STA $0684
+    LDA #$00
+    STA $0620
+    STA $0640
+    STA $0660
+@LOCAL_15:
+    STX $5B
+    LDA $23
+    BEQ @LOCAL_17
+    LDY #$00
+    STY $56
+@LOCAL_16:
+    LDA $061E,Y
+    ORA #$04
+    STA $061E,Y
+    TYA
+    CLC
+    ADC #$20
+    TAY
+    BPL @LOCAL_16
+@LOCAL_17:
+    LDA $56
+    CMP #$05
+    BNE @LOCAL_18
+    LDA #$96
+    STA $55
+    LDA $060C
+    STA $068C
+@LOCAL_18:
+    LDX #$14
+    JSR UNKNOWN_F25E
+    JSR UNKNOWN_F74C
+@LOCAL_19:
+    LDA #$00
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_17AC6A
+    BCS @LOCAL_20
+    LDX #$14
+    JSR UNKNOWN_F25E
+    LDA #$07
+    JSR UNKNOWN_F4CE
+    LDA #$00
+    STA $52
+    JSR UNKNOWN_ECFF
+    JSR UNKNOWN_F765
+    JSR UNKNOWN_17A50A
+    JSR UNKNOWN_F760
+    LDA #$03
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_ECFC
+    JMP @LOCAL_19
+@LOCAL_20:
+    JSR UNKNOWN_F759
+    LDA #$00
+    STA $DA
+    STA $DB
+    RTS
+
+UNKNOWN_17A1DD:
+    STA $62
+    TAX
+    LDA #$00
+    STA $60
+    LDA #$74
+    STA $61
+@LOCAL_17A1DD_1:
+    CLC
+    LDA $60
+    ADC #$40
+    STA $60
+    LDA $61
+    ADC #$00
+    STA $61
+    DEX
+    BNE @LOCAL_17A1DD_1
+    LDY #$01
+    LDX $53
+@LOCAL_17A1DD_2:
+    LDA ($60),Y
+    STA $0601,X
+    INY
+    INX
+    CPY #$10
+    BNE @LOCAL_17A1DD_2
+    LDY #$14
+    LDX $53
+@LOCAL_17A1DD_3:
+    LDA ($60),Y
+    STA $0603,X
+    INX
+    INY
+    CPY #$18
+    BNE @LOCAL_17A1DD_3
+    LDX $53
+    LDA #$FF
+    STA $0600,X
+    LDA $62
+    STA $0611,X
+    LDA $60
+    STA $0618,X
+    LDA $61
+    STA $0619,X
+    RTS
+
+UNKNOWN_17A22D:
+    LDX $53
+    LDA $61
+    ASL
+    ASL
+    STA $061A,X
+    LDA $60
+    STA $62
+    LDA #$00
+    LDX #$05
+@LOCAL_1:
+    ASL $62
+    ROL
+    DEX
+    BNE @LOCAL_1
+    STA $63
+    CLC
+    LDA #$00
+    ADC $62
+    STA $62
+    LDA #$80
+    ADC $63
+    STA $63
+    LDY #$01
+    LDX $53
+@LOCAL_2:
+    LDA ($62),Y
+    STA $0601,X
+    INY
+    INX
+    CPY #$18
+    BNE @LOCAL_2
+    LDX $53
+    LDY $48
+    INY
+    TYA
+    STA $0600,X
+    LDA $62
+    STA $0618,X
+    LDA $63
+    STA $0619,X
+    LDY #$5E
+    LDA $61
+    BPL @LOCAL_3
+    LDA $061E,X
+    ORA #$01
+    STA $061E,X
+    LDY #$00
+@LOCAL_3:
+    TYA
+    STA $061D,X
+    RTS
+
+UNKNOWN_17A28A:
+    LDA $061E,X
+    AND #$01
+    BEQ @LOCAL_1
+    LDA #$00
+    STA $0600,X
+@LOCAL_1:
+    LDA $061A,X
+    ORA $5B
+    STA $061A,X
+    LDA $0604,X
+    AND #$F0
+    LSR
+    LSR
+    LSR
+    TAY
+    LDA $960A,Y
+    STA $60
+    LDA $960B,Y
+    STA $61
+    LDA $0608,X
+    AND #$E0
+    LSR
+    LSR
+    LSR
+    LSR
+    LSR
+    STA $66
+    LDY #$00
+    LDA ($60),Y
+    STA $62
+    INY
+    LDA ($60),Y
+    STA $63
+    INY
+    SEC
+    LDA ($60),Y
+    SBC $66
+    TAY
+    INY
+    LDA #$E0
+@LOCAL_2:
+    CLC
+    ADC #$20
+    DEY
+    BNE @LOCAL_2
+    STA $64
+    LDA $5A
+    ASL
+    ASL
+    ADC $5B
+    TAY
+    LDA ENEMY_POSITIONING,Y
+    STA $65
+    LDA $0604,X
+    AND #$0C
+    LSR
+    LSR
+    LDY $65
+    LDX #$00
+@LOCAL_3:
+    STA $0580,Y
+    INY
+    INX
+    CPX $63
+    BNE @LOCAL_3
+    CLC
+    LDA $65
+    ADC $64
+    ADC #$80
+    STA $64
+    LDA #$00
+    ADC #$21
+    STA $65
+    LDA $64
+    AND #$E0
+    STA $68
+    LDA $65
+    AND #$03
+    LSR
+    ROR $68
+    LSR
+    ROR $68
+    SEC
+    LDA $68
+    SBC #$19
+    STA $68
+    LDA $64
+    ASL
+    ASL
+    ASL
+    SEC
+    SBC #$10
+    STA $69
+    LDX $5B
+    INX
+    LDA #$C0
+@LOCAL_4:
+    CLC
+    ADC #$40
+    DEX
+    BNE @LOCAL_4
+    STA $66
+    LDY #$02
+@LOCAL_5:
+    JSR UNKNOWN_FD33
+    LDX #$00
+    LDA #$05
+    STA $0400,X
+    INX
+    LDA $63
+    STA $0400,X
+    STA $67
+    INX
+    LDA $65
+    STA $0400,X
+    INX
+    LDA $64
+    STA $0400,X
+@LOCAL_6:
+    INY
+    LDA ($60),Y
+    CLC
+    ADC $66
+    INX
+    STA $0400,X
+    DEC $67
+    BNE @LOCAL_6
+    LDA #$00
+    INX
+    STA $0400,X
+    CLC
+    LDA $64
+    ADC #$20
+    STA $64
+    LDA $65
+    ADC #$00
+    STA $65
+    LDA #$00
+    STA $E6
+    LDA #$80
+    STA $E5
+    DEC $62
+    BNE @LOCAL_5
+    LDX $53
+    LDA $0606,X
+    AND #$FC
+    BEQ @LOCAL_7
+    LSR
+    LSR
+    STA $60
+    ASL
+    ADC $60
+    CLC
+    ADC #$C8
+    STA $60
+    LDA #$00
+    ADC #$97
+    STA $61
+    LDY #$00
+    LDA ($60),Y
+    STA $061C,X
+    LDA $5B
+    ASL
+    ASL
+    ASL
+    TAX
+    LDA #$00
+    STA $0300,X
+    STA $0301,X
+    STA $0304,X
+    STA $0305,X
+    LDA $69
+    STA $0302,X
+    LDA $68
+    STA $0303,X
+    LDY #$01
+    LDA ($60),Y
+    STA $0306,X
+    INY
+    LDA ($60),Y
+    STA $0307,X
+@LOCAL_7:
+    RTS
+
+UNKNOWN_17A3D2:
+    JSR UNKNOWN_FD33
+    STX $0402
+    STY $0403
+    LDA #$08
+    STA $0400
+    LDA #$40
+    STA $0401
+    LDA #$FF
+    STA $0404
+    LDA #$00
+    STA $0405
+    LDA #$80
+    STA $E5
+    LDA #$00
+    STA $E6
+    RTS
+
+UNKNOWN_17A3F8:
+    CMP #$00
+    BEQ @LOCAL_5
+    PHA
+    JSR UNKNOWN_17A4BB
+    JSR UNKNOWN_F247
+    PLA
+    CMP #$FF
+    BNE @LOCAL_1
+    SEC
+    LDY $54
+    LDA $0618,Y
+    SBC #$00
+    STA $74
+    LDA $0619,Y
+    SBC #$80
+    ASL $74
+    ROL
+    ASL $74
+    ROL
+    ASL $74
+    ROL
+    CLC
+    ADC #$14
+    STA $74
+    LDA #$00
+    ADC #$05
+    STA $73
+    BCC @LOCAL_2
+@LOCAL_1:
+    LDY #$00
+    STY $61
+    ASL
+    ROL $61
+    CLC
+    ADC #$81
+    STA $60
+    LDA $61
+    ADC #$90
+    STA $61
+    LDY #$00
+    LDA ($60),Y
+    STA $74
+    INY
+    LDA ($60),Y
+    STA $73
+@LOCAL_2:
+    JSR UNKNOWN_CAA2
+    LDA $74
+    STA $50
+    LDA $75
+    STA $51
+    LDA $52
+    CMP #$03
+    BNE @LOCAL_3
+    LDX #$03
+    JSR UNKNOWN_C7C1
+    DEC $52
+@LOCAL_3:
+    JSR UNKNOWN_17A479
+    CMP #$02
+    BEQ @LOCAL_4
+    INC $52
+    CMP #$00
+    BNE @LOCAL_2
+@LOCAL_4:
+    JSR UNKNOWN_F239
+    LDX $7418
+    JSR UNKNOWN_F25E
+@LOCAL_5:
+    RTS
+
+UNKNOWN_17A479:
+    LDA $52
+    ASL
+    ADC #$03
+    STA $77
+    LDY #$00
+    LDA ($50),Y
+    CMP #$03
+    BNE @LOCAL_2
+    LDA #$0F
+    STA $76
+    JSR UNKNOWN_F5C2
+    INC $50
+    BNE @LOCAL_1
+    INC $51
+@LOCAL_1:
+    LDY #$00
+    LDA ($50),Y
+    CMP #$02
+    BEQ @LOCAL_3
+@LOCAL_2:
+    LDA #$16
+    STA $70
+    LDA #$05
+    STA $76
+    JSR UNKNOWN_FD33
+    LDA $50
+    STA $74
+    LDA $51
+    STA $75
+    JSR UNKNOWN_C707
+    LDA #$01
+    JSR UNKNOWN_C7AF
+    LDA $72
+@LOCAL_3:
+    RTS
+
+UNKNOWN_17A4BB:
+    LDA #$21
+    STA $0580
+    STA $0588
+    LDA #$80
+    STA $62
+    LDA #$05
+    STA $63
+    LDX $53
+    JSR UNKNOWN_17A4DA
+    LDA #$88
+    STA $62
+    LDA #$05
+    STA $63
+    LDX $54
+
+UNKNOWN_17A4DA:
+    LDA $0618,X
+    STA $60
+    LDA $0619,X
+    STA $61
+    LDY #$18
+    LDA ($60),Y
+    PHA
+    INY
+    LDA ($60),Y
+    LDY #$02
+    STA ($62),Y
+    PLA
+    DEY
+    STA ($62),Y
+    INY
+    INY
+    LDA $061A,X
+    AND #$1C
+    BEQ @LOCAL_1
+    LSR
+    LSR
+    CLC
+    ADC #$40
+    STA ($62),Y
+    INY
+@LOCAL_1:
+    LDA #$00
+    STA ($62),Y
+    RTS
+
+UNKNOWN_17A50A:
+    LDA #$00
+    STA $53
+@LOCAL_1:
+    LDY $53
+    LDA #$00
+    STA $061D,Y
+    LDA $061E,Y
+    AND #$F7
+    STA $061E,Y
+    LDA $0600,Y
+    BEQ @LOCAL_2
+    LDA $0601,Y
+    AND #$F4
+    BNE @LOCAL_2
+    LDA $061E,Y
+    AND #$20
+    BNE @LOCAL_2
+    JSR UNKNOWN_17A53F
+    BCS @LOCAL_1
+@LOCAL_2:
+    CLC
+    LDA $53
+    ADC #$20
+    STA $53
+    BNE @LOCAL_1
+    RTS
+
+UNKNOWN_17A53F:
+    LDA $59
+    BNE @LOCAL_1
+    LDY $53
+    BMI @LOCAL_1
+    LDA $0611,Y
+    AND #$06
+    EOR #$06
+    BEQ @LOCAL_1
+    JSR UNKNOWN_17A7DA
+    BCS @LOCAL_5
+    LDA $59
+    BEQ @LOCAL_2
+@LOCAL_1:
+    JSR UNKNOWN_17A573
+@LOCAL_2:
+    LDY $53
+    LDA $061D,Y
+    CMP #$53
+    BEQ @LOCAL_3
+    CMP #$59
+    BNE @LOCAL_4
+@LOCAL_3:
+    LDA $061E,Y
+    ORA #$08
+    STA $061E,Y
+@LOCAL_4:
+    CLC
+@LOCAL_5:
+    RTS
+
+UNKNOWN_17A573:
+    LDA $53
+    BMI @LOCAL_1
+    JMP @LOCAL_2
+@LOCAL_1:
+    JMP UNKNOWN_17A723
+@LOCAL_2:
+    LDY #$00
+@LOCAL_3:
+    STY $54
+    LDA $0600,Y
+    BEQ @LOCAL_4
+    LDA $0611,Y
+    AND #$06
+    EOR #$06
+    BEQ @LOCAL_4
+    LDA $0601,Y
+    BMI @LOCAL_5
+@LOCAL_4:
+    TYA
+    CLC
+    ADC #$20
+    TAY
+    BPL @LOCAL_3
+    BMI UNKNOWN_17A5A0
+@LOCAL_5:
+    JMP UNKNOWN_17A6B0
+
+UNKNOWN_17A5A0:
+    LDY #$00
+@LOCAL_1:
+    STY $54
+    LDA $0600,Y
+    BEQ @LOCAL_2
+    LDA $0601,Y
+    BMI @LOCAL_2
+    LDA $0611,Y
+    AND #$06
+    EOR #$06
+    BEQ @LOCAL_2
+    JSR UNKNOWN_F673
+    BCC @LOCAL_3
+@LOCAL_2:
+    TYA
+    CLC
+    ADC #$20
+    TAY
+    BPL @LOCAL_1
+    BMI UNKNOWN_17A5E9
+@LOCAL_3:
+    LDX #$00
+    LDY #$00
+@LOCAL_4:
+    LDA $0600,Y
+    BEQ @LOCAL_5
+    LDA $0601,Y
+    BMI @LOCAL_5
+    JSR UNKNOWN_F673
+    BCS @LOCAL_5
+    INX
+    STY $54
+@LOCAL_5:
+    TYA
+    CLC
+    ADC #$20
+    TAY
+    BPL @LOCAL_4
+    CPX #$01
+    BCC UNKNOWN_17A611
+    JMP UNKNOWN_17A623
+
+UNKNOWN_17A5E9:
+    LDY #$00
+@LOCAL_1:
+    STY $54
+    LDA $0600,Y
+    BEQ @LOCAL_2
+    LDA $0611,Y
+    AND #$06
+    EOR #$06
+    BEQ @LOCAL_2
+    LDA $0601,Y
+    BMI @LOCAL_2
+    AND #$70
+    BNE @LOCAL_3
+@LOCAL_2:
+    TYA
+    CLC
+    ADC #$20
+    TAY
+    BPL @LOCAL_1
+    JMP UNKNOWN_17A690
+@LOCAL_3:
+    JMP UNKNOWN_17A659
+
+UNKNOWN_17A611:
+    LDA #$0C
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_1
+    LDA #$0B
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_1
+    JMP UNKNOWN_17A623
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17A623:
+    LDA #$0A
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_1
+    LDA #$09
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_1
+    LDA #$08
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_1
+    LDY $53
+    JSR UNKNOWN_17BFAA
+    BCS UNKNOWN_17A5E9
+    CPX #$7C
+    BEQ UNKNOWN_17A5E9
+    CPX #$84
+    BEQ UNKNOWN_17A5E9
+    TYA
+    LDY $53
+    STA $0610,Y
+    TXA
+    STA $061D,Y
+@LOCAL_1:
+    LDA $54
+    LDY $53
+    STA $061C,Y
+    RTS
+
+UNKNOWN_17A659:
+    LDY $54
+    LDA $0601,Y
+    TAX
+    AND #$20
+    BNE @LOCAL_1
+    TXA
+    AND #$10
+    BNE @LOCAL_2
+    TXA
+    AND #$40
+    BNE @LOCAL_3
+    JMP @LOCAL_4
+@LOCAL_1:
+    LDA #$11
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_5
+@LOCAL_2:
+    LDA #$13
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_5
+@LOCAL_3:
+    LDA #$12
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_5
+@LOCAL_4:
+    JMP UNKNOWN_17A690
+@LOCAL_5:
+    LDA $54
+    LDY $53
+    STA $061C,Y
+    RTS
+
+UNKNOWN_17A690:
+    LDY $53
+    LDA #$01
+    STA $061D,Y
+@LOCAL_1:
+    JSR UNKNOWN_F1ED
+    AND #$E0
+    ORA #$80
+    TAY
+    LDA $0600,Y
+    BEQ @LOCAL_1
+    LDA $0601,Y
+    BMI @LOCAL_1
+    TYA
+    LDY $53
+    STA $061C,Y
+    RTS
+
+UNKNOWN_17A6B0:
+    LDA #$14
+    JSR UNKNOWN_17A6C2
+    BCC @LOCAL_1
+    JMP UNKNOWN_17A5A0
+@LOCAL_1:
+    LDY $53
+    LDA $54
+    STA $061C,Y
+    RTS
+
+UNKNOWN_17A6C2:
+    STA $60
+    JSR UNKNOWN_17A86B
+    LDA $60
+    LSR
+    LSR
+    LSR
+    TAY
+    LDA $60
+    AND #$07
+    TAX
+    INX
+    SEC
+    LDA #$00
+@LOCAL_1:
+    ROR
+    DEX
+    BNE @LOCAL_1
+    STA $61
+    LDA ($5C),Y
+    AND $61
+    BEQ @LOCAL_2
+    LDA #$00
+    ASL $60
+    ROL
+    ASL $60
+    ROL
+    ASL $60
+    ROL
+    STA $61
+    CLC
+    LDA $60
+    ADC #$00
+    STA $60
+    LDA $61
+    ADC #$9E
+    STA $61
+    JSR UNKNOWN_F247
+    LDY #$05
+    LDA ($60),Y
+    LDY $53
+    STA $061D,Y
+    LDY #$07
+    LDA ($60),Y
+    STA $4E
+    LDA #$00
+    STA $4F
+    JSR UNKNOWN_F239
+    JSR UNKNOWN_17B1D1
+    BCC @LOCAL_2
+    JSR UNKNOWN_17B1C5
+    BCC @LOCAL_2
+    CLC
+    RTS
+@LOCAL_2:
+    SEC
+    RTS
+
+UNKNOWN_17A723:
+    JSR UNKNOWN_F1ED
+    AND #$07
+    CLC
+    ADC $53
+    TAY
+    LDA $0610,Y
+    LDY $53
+    STA $061D,Y
+    JSR UNKNOWN_17AC23
+    JSR UNKNOWN_F2D5
+
+    ; Jump table
+    .WORD UNKNOWN_17A7A3
+    .WORD UNKNOWN_17A740
+    .WORD UNKNOWN_17A74A
+
+UNKNOWN_17A740:
+    JSR UNKNOWN_17A7AB
+    LDA $54
+    BPL UNKNOWN_17A740
+    JMP UNKNOWN_17A7A3
+
+UNKNOWN_17A74A:
+    LDA $53
+    BPL @LOCAL_8
+    LDA $56
+    CMP #$03
+    BNE @LOCAL_2
+    LDX #$03
+@LOCAL_1:
+    LDA #$06
+    JSR UNKNOWN_17A7BE
+    BCS @LOCAL_9
+    DEX
+    BPL @LOCAL_1
+@LOCAL_2:
+    LDA $56
+    CMP #$04
+    BNE @LOCAL_6
+    LDX #$03
+@LOCAL_3:
+    LDA #$01
+    JSR UNKNOWN_17A7BE
+    BCS @LOCAL_9
+    DEX
+    BPL @LOCAL_3
+    LDX #$03
+@LOCAL_4:
+    LDA #$02
+    JSR UNKNOWN_17A7BE
+    BCS @LOCAL_9
+    DEX
+    BPL @LOCAL_4
+    LDX #$03
+@LOCAL_5:
+    LDA #$04
+    JSR UNKNOWN_17A7BE
+    BCS @LOCAL_9
+    DEX
+    BPL @LOCAL_5
+@LOCAL_6:
+    LDX #$03
+@LOCAL_7:
+    LDA #$07
+    JSR UNKNOWN_17A7BE
+    BCS @LOCAL_9
+    DEX
+    BPL @LOCAL_7
+@LOCAL_8:
+    JSR UNKNOWN_17A7AB
+    LDA $54
+    BMI @LOCAL_8
+    JMP UNKNOWN_17A7A3
+@LOCAL_9:
+    JMP UNKNOWN_17A7A3
+
+UNKNOWN_17A7A3:
+    LDA $54
+    LDY $53
+    STA $061C,Y
+    RTS
+
+UNKNOWN_17A7AB:
+    JSR UNKNOWN_F1ED
+    AND #$E0
+    TAY
+    LDA $0600,Y
+    BEQ UNKNOWN_17A7AB
+    LDA $0601,Y
+    BMI UNKNOWN_17A7AB
+    STY $54
+    RTS
+
+UNKNOWN_17A7BE:
+    CMP $7408,X
+    BNE @LOCAL_1
+    TXA
+    ASL
+    ASL
+    ASL
+    ASL
+    ASL
+    TAY
+    LDA $0600,Y
+    BEQ @LOCAL_1
+    LDA $0601,Y
+    BMI @LOCAL_1
+    STY $54
+    SEC
+    RTS
+@LOCAL_1:
+    CLC
+    RTS
+
+UNKNOWN_17A7DA:
+    JSR UNKNOWN_17AC06
+
+UNKNOWN_17A7DD:
+    LDA #$02
+    LDX $761C
+    BPL @LOCAL_1
+    LDA #$13
+@LOCAL_1:
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_17A90D
+    JSR UNKNOWN_F2D5
+
+    ; Jump table
+    .WORD UNKNOWN_17A802
+    .WORD UNKNOWN_17A814
+    .WORD UNKNOWN_17A847
+    .WORD UNKNOWN_17A87D
+    .WORD UNKNOWN_17A888
+    .WORD UNKNOWN_17A8BA
+    .WORD UNKNOWN_17A8BF
+    .WORD UNKNOWN_17A8E2
+    .WORD UNKNOWN_17A8E7
+
+; This might have been used for debugging. The only way it is reached is via `JMP` instructions
+; from the jump-table above. Odd, considering they could just use `RTS` directly. It would make this
+; the perfect place to inject some common debug or cleanup code.
+UNKNOWN_COMMON_RTS:
+    RTS
+
+UNKNOWN_17A802:
+    LDA #$01
+    LDY $53
+    STA $061D,Y
+    JSR UNKNOWN_17A962
+    BCC @LOCAL_1
+    JMP UNKNOWN_17A7DD
+@LOCAL_1:
+    JMP UNKNOWN_COMMON_RTS
+
+UNKNOWN_17A814:
+    JSR UNKNOWN_FD33
+    LDA #$01
+    STA $59
+    LDA #$14
+    STA $03E6
+    LDA #$97
+    STA $03E7
+    LDA #$04
+    STA $03E0
+    LDA #$00
+    STA $03E1
+    STA $03E4
+    STA $03E5
+    LDA #$D0
+    STA $03E2
+    LDA #$47
+    STA $03E3
+    LDA #$01
+    STA $E5
+    CLC
+    JMP UNKNOWN_COMMON_RTS
+
+UNKNOWN_17A847:
+    JSR UNKNOWN_17A86B
+    LDA #$00
+    STA $60
+    LDY #$07
+@LOCAL_1:
+    LDA ($5C),Y
+    ORA $60
+    STA $60
+    DEY
+    BNE @LOCAL_1
+    LDA $60
+    BEQ @LOCAL_3
+    JSR UNKNOWN_17AB10
+    BCS @LOCAL_2
+    JMP UNKNOWN_COMMON_RTS
+@LOCAL_2:
+    JMP UNKNOWN_17A7DA
+@LOCAL_3:
+    JMP UNKNOWN_17A7DD
+
+UNKNOWN_17A86B:
+    LDY $53
+    CLC
+    LDA $0618,Y
+    ADC #$30
+    STA $5C
+    LDA $0619,Y
+    ADC #$00
+    STA $5D
+    RTS
+
+UNKNOWN_17A87D:
+    LDA #$59
+
+UNKNOWN_17A87F:
+    LDY $53
+    STA $061D,Y
+    CLC
+    JMP UNKNOWN_COMMON_RTS
+
+UNKNOWN_17A888:
+    LDY $53
+    CLC
+    LDA $0618,Y
+    ADC #$20
+    STA $5C
+    LDA $0619,Y
+    ADC #$00
+    STA $5D
+    LDA #$00
+    STA $60
+    LDY #$07
+@LOCAL_1:
+    LDA ($5C),Y
+    ORA $60
+    STA $60
+    DEY
+    BPL @LOCAL_1
+    LDA $60
+    BEQ @LOCAL_3
+    JSR UNKNOWN_17AA08
+    BCS @LOCAL_2
+    JMP UNKNOWN_COMMON_RTS
+@LOCAL_2:
+    JMP UNKNOWN_17A7DA
+@LOCAL_3:
+    JMP UNKNOWN_17A7DD
+
+UNKNOWN_17A8BA:
+    LDA #$48
+    JMP UNKNOWN_17A87F
+
+UNKNOWN_17A8BF:
+    LDA #$80
+    STA $54
+    JSR UNKNOWN_17A991
+    BCS @LOCAL_1
+    LDX $82
+    LDA $0591,X
+    TAX
+    DEX
+    TXA
+    STA $54
+    LDY $53
+    STA $061C,Y
+    LDA #$6F
+    STA $061D,Y
+    JMP UNKNOWN_COMMON_RTS
+@LOCAL_1:
+    JMP UNKNOWN_17A7DD
+
+UNKNOWN_17A8E2:
+    LDA #$1C
+    JMP UNKNOWN_17A87F
+
+UNKNOWN_17A8E7:
+    SEC
+    LDA $53
+    BEQ @LOCAL_1
+    SBC #$20
+    STA $53
+    TAY
+    LDA $0600,Y
+    BEQ UNKNOWN_17A8E7
+    LDA $0601,Y
+    BMI UNKNOWN_17A8E7
+    LDA $0601,Y
+    AND #$F4
+    BNE UNKNOWN_17A8E7
+    LDA $061E,Y
+    AND #$20
+    BNE UNKNOWN_17A8E7
+@LOCAL_1:
+    SEC
+    JMP UNKNOWN_COMMON_RTS
+
+UNKNOWN_17A90D:
+    LDX #$73
+    LDY #$9F
+    LDA $56
+    CMP #$01
+    BNE @LOCAL_1
+    LDX #$83
+    LDY #$9F
+    JMP @LOCAL_2
+@LOCAL_1:
+    LDA $761C
+    BPL @LOCAL_2
+    LDX #$7B
+    LDY #$9F
+@LOCAL_2:
+    STX $84
+    STY $85
+    LDX #$6B
+    LDY #$9F
+    STX $80
+    STY $81
+    JSR UNKNOWN_EF3F
+    BIT $83
+    BVS @LOCAL_3
+    LDA #$09
+    JSR UNKNOWN_17A945
+    LDA $82
+    RTS
+@LOCAL_3:
+    LDA #$08
+    RTS
+
+UNKNOWN_17A945:
+    STA $60
+    LDA $82
+    LSR
+    ASL
+    CLC
+    ADC $77
+    STA $77
+    LDA $82
+    AND #$01
+    BEQ @LOCAL_1
+    CLC
+    LDA $76
+    ADC $60
+    STA $76
+@LOCAL_1:
+    LDA #$0D
+    JMP UNKNOWN_F4CE
+
+UNKNOWN_17A962:
+    JSR UNKNOWN_17AC23
+    BEQ @LOCAL_2
+    LDX #$80
+    CMP #$02
+    BEQ @LOCAL_1
+    LDX #$00
+@LOCAL_1:
+    STX $60
+    LDA $53
+    AND #$80
+    EOR $60
+    STA $54
+    JSR UNKNOWN_17A991
+    BCS @LOCAL_3
+    LDX $82
+    LDA $0591,X
+    TAX
+    DEX
+    TXA
+    STA $54
+    LDY $53
+    STA $061C,Y
+@LOCAL_2:
+    CLC
+    RTS
+@LOCAL_3:
+    SEC
+    RTS
+
+UNKNOWN_17A991:
+    LDA #$0B
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_17A9B3
+    LDA #$8B
+    STA $80
+    LDA #$9F
+    STA $81
+    JSR UNKNOWN_EF34
+    BIT $83
+    BVS @LOCAL_2
+    BMI @LOCAL_1
+    JMP UNKNOWN_17A991
+@LOCAL_1:
+    LDA $82
+    CLC
+    RTS
+@LOCAL_2:
+    SEC
+    RTS
+
+UNKNOWN_17A9B3:
+    LDA #$12
+    STA $77
+    LDX #$00
+    STX $0591
+    STX $0592
+    STX $0593
+    STX $0594
+    INX
+    STX $0590
+    LDA $54
+    PHA
+    LDY #$04
+@LOCAL_1:
+    TYA
+    PHA
+    LDY $54
+    LDA $0600,Y
+    BEQ @LOCAL_3
+    LDY $54
+    BMI @LOCAL_2
+    LDA $0611,Y
+    AND #$06
+    EOR #$06
+    BEQ @LOCAL_3
+@LOCAL_2:
+    INY
+    TYA
+    STA $0590,X
+    INX
+    TXA
+    PHA
+    JSR UNKNOWN_17A4BB
+    LDA #$0C
+    JSR UNKNOWN_F4CE
+    INC $77
+    PLA
+    TAX
+@LOCAL_3:
+    CLC
+    LDA $54
+    ADC #$20
+    STA $54
+    PLA
+    TAY
+    DEY
+    BNE @LOCAL_1
+    PLA
+    STA $54
+    RTS
+
+UNKNOWN_17AA08:
+    LDA #$0E
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_17AA67
+    JSR UNKNOWN_17AAE9
+    BCS @LOCAL_4
+    LDY $53
+    LDA $82
+    STA $0610,Y
+    LDY $82
+    LDA ($5C),Y
+    JSR UNKNOWN_17AAA4
+    LDY $53
+    JSR UNKNOWN_17AC49
+    BCS @LOCAL_1
+    JSR UNKNOWN_F247
+    LDY #$05
+    LDA ($62),Y
+    JSR UNKNOWN_F239
+    CMP #$00
+    BEQ @LOCAL_2
+    LDY $53
+    STA $061D,Y
+    JSR UNKNOWN_17A962
+    BCS @LOCAL_4
+    RTS
+@LOCAL_1:
+    LDX $53
+    JSR UNKNOWN_17A4BB
+    LDX #$14
+    BNE @LOCAL_3
+@LOCAL_2:
+    LDX #$10
+    JSR UNKNOWN_F247
+    LDY #$03
+    LDA ($62),Y
+    JSR UNKNOWN_F239
+    CMP #$00
+    BEQ @LOCAL_3
+    LDX #$11
+@LOCAL_3:
+    TXA
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_F29E
+@LOCAL_4:
+    SEC
+    RTS
+
+UNKNOWN_17AA67:
+    LDY #$00
+@LOCAL_1:
+    TYA
+    PHA
+    AND #$01
+    TAX
+    LDA UNKNOWN_9FB2,X
+    STA $76
+    TYA
+    LSR
+    TAX
+    LDA UNKNOWN_9FB4,X
+    STA $77
+    LDA ($5C),Y
+    BEQ @LOCAL_2
+    JSR UNKNOWN_17AAA4
+    JSR UNKNOWN_F247
+    LDA #$04
+    STA $0588
+    LDY #$00
+    LDA ($62),Y
+    STA $0589
+    INY
+    LDA ($62),Y
+    STA $058A
+    LDA #$0F
+    JSR UNKNOWN_F4CE
+@LOCAL_2:
+    PLA
+    TAY
+    INY
+    CPY #$08
+    BNE @LOCAL_1
+    RTS
+
+UNKNOWN_17AAA4:
+    LDX #$00
+    STX $63
+    LDX #$03
+@LOCAL_1:
+    ASL
+    ROL $63
+    DEX
+    BNE @LOCAL_1
+    CLC
+    ADC #.lobyte(ITEM_DATA)
+    STA $62
+    LDA $63
+    ADC #.hibyte(ITEM_DATA)
+    STA $63
+    RTS
+
+UNKNOWN_17AABC:
+    CLC
+    LDA $0618,Y
+    ADC #$20
+    STA $60
+    LDA $0619,Y
+    ADC #$00
+    STA $61
+    RTS
+
+UNKNOWN_17AACC:
+    JSR UNKNOWN_F247
+    LDA #$21
+    STA $0590
+    LDY #$00
+    LDA ($62),Y
+    STA $0591
+    INY
+    LDA ($62),Y
+    STA $0592
+    LDA #$00
+    STA $0593
+    JMP UNKNOWN_F239
+
+UNKNOWN_17AAE9:
+    LDA #$95
+    STA $80
+    LDA #$9F
+    STA $81
+    LDA $5C
+    STA $84
+    LDA $5D
+    STA $85
+    JSR UNKNOWN_EF3F
+    BIT $83
+    BVS @LOCAL_2
+    BMI @LOCAL_1
+    JMP UNKNOWN_17AAE9
+@LOCAL_1:
+    LDA #$0C
+    JSR UNKNOWN_17A945
+    LDA $82
+    CLC
+    RTS
+@LOCAL_2:
+    SEC
+    RTS
+
+UNKNOWN_17AB10:
+    LDY #$01
+@LOCAL_1:
+    LDA ($5C),Y
+    BEQ @LOCAL_2
+    TYA
+    PHA
+    LDA #$0E
+    JSR UNKNOWN_F4CE
+    LDA #$12
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_17AB61
+    JSR UNKNOWN_17ABC2
+    PLA
+    TAY
+    CPX #$01
+    BEQ @LOCAL_3
+    CPX #$02
+    BEQ @LOCAL_5
+@LOCAL_2:
+    INY
+    CPY #$08
+    BEQ UNKNOWN_17AB10
+    BNE @LOCAL_1
+@LOCAL_3:
+    LDY $82
+    LDA $0580,Y
+    JSR UNKNOWN_F5F7
+    JSR UNKNOWN_F247
+    LDY #$05
+    LDA ($62),Y
+    BEQ @LOCAL_4
+    LDY $53
+    STA $061D,Y
+    PHA
+    JSR UNKNOWN_F239
+    PLA
+    JMP UNKNOWN_17A962
+@LOCAL_4:
+    LDA #$10
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_F29E
+@LOCAL_5:
+    SEC
+    RTS
+
+UNKNOWN_17AB61:
+    TYA
+    ASL
+    ASL
+    ASL
+    STA $60
+    LDA #$80
+    STA $61
+    LDX #$00
+@LOCAL_1:
+    LDA #$00
+    STA $0580,X
+    LDA ($5C),Y
+    AND $61
+    BEQ @LOCAL_2
+    LDA $60
+    STA $0580,X
+@LOCAL_2:
+    INC $60
+    INX
+    LSR $61
+    BCC @LOCAL_1
+    LDY #$00
+@LOCAL_3:
+    TYA
+    PHA
+    AND #$01
+    TAX
+    LDA UNKNOWN_9FB2,X
+    STA $76
+    TYA
+    LSR
+    TAX
+    LDA UNKNOWN_9FB4,X
+    STA $77
+    LDA $0580,Y
+    BEQ @LOCAL_4
+    JSR UNKNOWN_F5F7
+    JSR UNKNOWN_F247
+    LDA #$04
+    STA $0588
+    LDY #$00
+    LDA ($62),Y
+    STA $0589
+    INY
+    LDA ($62),Y
+    STA $058A
+    LDA #$0F
+    JSR UNKNOWN_F4CE
+@LOCAL_4:
+    PLA
+    TAY
+    INY
+    CPY #$08
+    BNE @LOCAL_3
+    RTS
+
+UNKNOWN_17ABC2:
+    LDA #$A7
+    STA $80
+    LDA #$9F
+    STA $81
+    JSR UNKNOWN_EF34
+    LDA $83
+    AND #$06
+    BNE @LOCAL_3
+    LDA $83
+    AND #$81
+    BNE @LOCAL_1
+    BIT $83
+    BVS @LOCAL_2
+    JMP UNKNOWN_17ABC2
+@LOCAL_1:
+    LDX #$00
+    RTS
+@LOCAL_2:
+    LDX #$02
+    RTS
+@LOCAL_3:
+    LDA #$9D
+    STA $80
+    LDA #$9F
+    STA $81
+    JSR UNKNOWN_EF34
+    LDA $83
+    AND #$08
+    BNE UNKNOWN_17ABC2
+    BIT $83
+    BVS @LOCAL_5
+    BMI @LOCAL_4
+    JMP UNKNOWN_17ABC2
+@LOCAL_4:
+    LDX #$01
+    RTS
+@LOCAL_5:
+    LDX #$02
+    RTS
+
+UNKNOWN_17AC06:
+    LDA #$0A
+    JSR UNKNOWN_F4CE
+    JSR UNKNOWN_17A4BB
+    JSR UNKNOWN_F247
+    LDA #$00
+    STA $70
+    LDA #$7A
+    STA $74
+    LDA #$8E
+    STA $75
+    JSR UNKNOWN_C6DB
+    JMP UNKNOWN_F239
+
+UNKNOWN_17AC23:
+    PHA
+    AND #$03
+    TAX
+    INX
+    LDA #$01
+    SEC
+@LOCAL_1:
+    ROR
+    ROR
+    DEX
+    BNE @LOCAL_1
+    STA $60
+    PLA
+    LSR
+    LSR
+    TAY
+    LDA BATTLE_ACTION_TARGETTING,Y
+    AND $60
+    STA $61
+
+UNKNOWN_17AC3D:
+    LSR $60
+    BCS @LOCAL_2
+    LSR $61
+    JMP UNKNOWN_17AC3D
+@LOCAL_2:
+    LDA $61
+    RTS
+
+UNKNOWN_17AC49:
+    JSR UNKNOWN_F247
+    LDA $0611,Y
+    STA $64
+    TAX
+    SEC
+    LDA #$00
+@LOCAL_1:
+    ROL
+    DEX
+    BNE @LOCAL_1
+    STA $67
+    LDY #$02
+    LDA ($62),Y
+    JSR UNKNOWN_F239
+    AND $67
+    BEQ @LOCAL_2
+    CLC
+    RTS
+@LOCAL_2:
+    SEC
+    RTS
+
+UNKNOWN_17AC6A:
+    JSR UNKNOWN_17B75A
+    BCS @LOCAL_3
+    LDX #$08
+@LOCAL_1:
+    TXA
+    PHA
+    JSR UNKNOWN_17ACA5
+    JSR UNKNOWN_17ACD6
+    LDA #$FF
+    LDY $53
+    STA $061D,Y
+    JSR UNKNOWN_17B75A
+    BCS @LOCAL_2
+    PLA
+    TAX
+    DEX
+    BNE @LOCAL_1
+    DEC $5B
+    BEQ @LOCAL_4
+    CLC
+    RTS
+@LOCAL_2:
+    PLA
+@LOCAL_3:
+    SEC
+    RTS
+@LOCAL_4:
+    LDA $56
+    CMP #$01
+    BEQ @LOCAL_5
+    LDX #$64
+    JSR UNKNOWN_F25E
+    LDA #$92
+    JSR UNKNOWN_17A3F8
+@LOCAL_5:
+    SEC
+    RTS
+
+UNKNOWN_17ACA5:
+    LDA #$00
+    STA $60
+    STA $61
+@LOCAL_1:
+    LDY $60
+    LDA $061D,Y
+    CMP #$FF
+    BEQ @LOCAL_2
+    CMP #$5E
+    BEQ @LOCAL_3
+    LDA $060C,Y
+    JSR UNKNOWN_F3FD
+    CMP $61
+    BCC @LOCAL_2
+    STA $61
+    LDA $60
+    STA $62
+@LOCAL_2:
+    CLC
+    LDA $60
+    ADC #$20
+    STA $60
+    BNE @LOCAL_1
+    LDY $62
+@LOCAL_3:
+    STY $53
+    RTS
+
+UNKNOWN_17ACD6:
+    LDY $53
+    LDA $0600,Y
+    BNE @LOCAL_1
+    LDA #$00
+    JMP UNKNOWN_17ADC1
+@LOCAL_1:
+    LDA $0601,Y
+    AND #$80
+    BEQ @LOCAL_2
+    LDA #$00
+    JMP UNKNOWN_17ADC1
+@LOCAL_2:
+    LDA $0601,Y
+    AND #$40
+    BEQ @LOCAL_3
+    LDA #$47
+    JMP UNKNOWN_17ADC1
+@LOCAL_3:
+    LDA $0601,Y
+    AND #$20
+    BEQ @LOCAL_4
+    LDA #$46
+    JMP UNKNOWN_17ADC1
+@LOCAL_4:
+    LDA $0601,Y
+    AND #$10
+    BEQ @LOCAL_6
+    JSR UNKNOWN_F1ED
+    AND #$E0
+    BNE @LOCAL_5
+    LDA $0601,Y
+    AND #$EF
+    STA $0601,Y
+    STY $54
+    JSR UNKNOWN_F5E5
+    LDA #$8E
+    JMP UNKNOWN_17ADC1
+@LOCAL_5:
+    LDA #$3C
+    JMP UNKNOWN_17ADC1
+@LOCAL_6:
+    LDA $0601,Y
+    AND #$04
+    BEQ @LOCAL_7
+    LDA #$68
+    JMP UNKNOWN_17ADC1
+@LOCAL_7:
+    LDA $061E,Y
+    AND #$02
+    BEQ @LOCAL_8
+    LDA $061D,Y
+    CMP #$76
+    BEQ @LOCAL_8
+    LDA #$56
+    JMP UNKNOWN_17ADC1
+@LOCAL_8:
+    LDA $061E,Y
+    AND #$20
+    BEQ @LOCAL_10
+    JSR UNKNOWN_F1ED
+    AND #$C0
+    BNE @LOCAL_9
+    LDA $061E,Y
+    AND #$DF
+    STA $061E,Y
+    LDA #$8B
+    JMP UNKNOWN_17ADC1
+@LOCAL_9:
+    LDA #$1C
+    JMP UNKNOWN_17ADC1
+@LOCAL_10:
+    LDA $0601,Y
+    AND #$08
+    BEQ @LOCAL_11
+    LDA #$3A
+    JSR UNKNOWN_17A3F8
+@LOCAL_11:
+    LDY $53
+    LDA $061D,Y
+
+UNKNOWN_17AD7B:
+    LDY #$00
+    STY $61
+    ASL
+    ROL $61
+    STA $60
+    CLC
+    LDA #$FB
+    ADC $60
+    STA $60
+    LDA #$97
+    ADC $61
+    STA $61
+    LDY #$00
+    LDA ($60),Y
+    STA $5E
+    INY
+    LDA ($60),Y
+    STA $5F
+
+UNKNOWN_17AD9C:
+    LDY #$00
+    LDA ($5E),Y
+    LSR
+    LSR
+    LSR
+    LSR
+    JSR UNKNOWN_F2D5
+
+    ; Jump table
+    .WORD UNKNOWN_17ADC4
+    .WORD UNKNOWN_17ADC9
+    .WORD UNKNOWN_17ADF1
+    .WORD UNKNOWN_17AE5D
+    .WORD UNKNOWN_17B804
+    .WORD UNKNOWN_17AEEA
+    .WORD UNKNOWN_17AF08
+    .WORD UNKNOWN_17AF31
+    .WORD UNKNOWN_17AF39
+    .WORD UNKNOWN_17AF7B
+    .WORD UNKNOWN_17AF92
+    .WORD UNKNOWN_17AF98
+    .WORD UNKNOWN_17AE8E
+
+UNKNOWN_17ADC1:
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17ADC4:
+    LDA #$01
+    JMP UNKNOWN_17AFE1
+
+UNKNOWN_17ADC9:
+    LDY #$00
+    LDA ($5E),Y
+    AND #$0F
+    JSR UNKNOWN_F2AE
+
+    ; Return address
+    .WORD UNKNOWN_17ADEC
+
+    ; Jump table
+    .WORD UNKNOWN_17AFED
+    .WORD UNKNOWN_17AFF2
+    .WORD UNKNOWN_17AFFE
+    .WORD UNKNOWN_17B008
+    .WORD UNKNOWN_17B012
+    .WORD UNKNOWN_17B022
+    .WORD UNKNOWN_17B032
+    .WORD UNKNOWN_17B037
+    .WORD UNKNOWN_17B041
+    .WORD UNKNOWN_17B04B
+    .WORD UNKNOWN_17B055
+    .WORD UNKNOWN_17B05F
+
+UNKNOWN_17ADEC:
+    LDA #$01
+    JMP UNKNOWN_17AFCD
+
+UNKNOWN_17ADF1:
+    LDY #$01
+    LDA ($5E),Y
+    LDX #$00
+    STX $61
+    LDX #$03
+@LOCAL_1:
+    ASL
+    ROL $61
+    DEX
+    BNE @LOCAL_1
+    CLC
+    ADC #$00
+    STA $60
+    LDA $61
+    ADC #$9E
+    STA $61
+    JSR UNKNOWN_F247
+    LDY #$07
+    LDA ($60),Y
+    STA $4E
+    LDA #$00
+    STA $4F
+    LDA #$21
+    STA $0590
+    LDY #$00
+    LDA ($60),Y
+    STA $0591
+    INY
+    LDA ($60),Y
+    STA $0592
+    LDA #$00
+    STA $0593
+    JSR UNKNOWN_F239
+    LDA #$64
+    JSR UNKNOWN_17A3F8
+    JSR UNKNOWN_17B1C5
+    BCC @LOCAL_2
+    JSR UNKNOWN_17B1D1
+    BCC @LOCAL_3
+    JSR UNKNOWN_17B0A4
+    LDA $58
+    JSR UNKNOWN_F41F
+    LDA #$00
+    STA $58
+    LDA #$02
+    JMP UNKNOWN_17AFCD
+@LOCAL_2:
+    LDA #$51
+    JMP UNKNOWN_17A3F8
+@LOCAL_3:
+    LDA #$54
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17AE5D:
+    LDY #$01
+    LDA ($5E),Y
+    JSR UNKNOWN_17AAA4
+    JSR UNKNOWN_17AACC
+    LDY $53
+    BMI @LOCAL_1
+    JSR UNKNOWN_FDE7
+    LDY #$00
+    LDA ($5E),Y
+    AND #$0F
+    CMP #$01
+    BNE @LOCAL_1
+    JSR UNKNOWN_17B4E5
+@LOCAL_1:
+    LDA #$63
+    JSR UNKNOWN_17A3F8
+    LDA $58
+    JSR UNKNOWN_F41F
+    LDA #$00
+    STA $58
+    LDA #$02
+    JMP UNKNOWN_17AFCD
+
+UNKNOWN_17AE8E:
+    LDY #$01
+    LDA ($5E),Y
+    JSR UNKNOWN_17AAA4
+    JSR UNKNOWN_17AACC
+    LDY $53
+    BMI @LOCAL_5
+    LDY #$00
+    LDA ($5E),Y
+    AND #$0F
+    JSR UNKNOWN_F2D5
+
+    ; Jump table
+    .WORD @LOCAL_2
+    .WORD @LOCAL_3
+    .WORD @LOCAL_4
+
+@LOCAL_2:
+    JSR UNKNOWN_F1ED
+    AND #$E0
+    BNE @LOCAL_5
+    JSR UNKNOWN_17B4E5
+    LDA #$75
+    JSR UNKNOWN_17A3F8
+    JMP @LOCAL_5
+@LOCAL_3:
+    JSR UNKNOWN_F1ED
+    AND #$E0
+    BNE @LOCAL_5
+    JSR UNKNOWN_17B4E5
+    LDA #$78
+    JSR UNKNOWN_17A3F8
+    JMP @LOCAL_5
+@LOCAL_4:
+    JSR UNKNOWN_FDE7
+    DEC $741F
+    JSR UNKNOWN_FDED
+    LDA $741F
+    BNE @LOCAL_5
+    JSR UNKNOWN_17B4E5
+    LDA #$91
+    JSR UNKNOWN_17A3F8
+@LOCAL_5:
+    LDA #$02
+    JMP UNKNOWN_17AFCD
+
+UNKNOWN_17AEEA:
+    LDY #$00
+    LDA ($5E),Y
+    AND #$0F
+    JSR UNKNOWN_F2AE
+
+    ; Return address
+    .WORD UNKNOWN_17AF03
+
+    ; Jump table
+    .WORD UNKNOWN_17B1DF
+    .WORD UNKNOWN_17B1E0
+    .WORD UNKNOWN_17B202
+    .WORD UNKNOWN_17B21D
+    .WORD UNKNOWN_17B238
+    .WORD UNKNOWN_17B23D
+    .WORD UNKNOWN_17B248
+
+UNKNOWN_17AF03:
+    LDA #$01
+    JMP UNKNOWN_17AFCD
+
+UNKNOWN_17AF08:
+    LDY #$01
+    LDA ($5E),Y
+    STA $64
+    DEY
+    LDA ($5E),Y
+    AND #$0F
+    JSR UNKNOWN_F2AE
+
+    ; Return address
+    .WORD UNKNOWN_17AF2C
+
+    ; Jump table
+    .WORD UNKNOWN_17B250
+    .WORD UNKNOWN_17B2D9
+    .WORD UNKNOWN_17B2F9
+    .WORD UNKNOWN_17B302
+    .WORD UNKNOWN_17B319
+    .WORD UNKNOWN_17B320
+    .WORD UNKNOWN_17B3C2
+    .WORD UNKNOWN_17B3CE
+    .WORD UNKNOWN_17B3D3
+    .WORD UNKNOWN_17B3D8
+
+UNKNOWN_17AF2C:
+    LDA #$02
+    JMP UNKNOWN_17AFCD
+
+UNKNOWN_17AF31:
+    JSR UNKNOWN_17AF53
+    BCC UNKNOWN_17AF3E
+    JMP UNKNOWN_17AF4E
+
+UNKNOWN_17AF39:
+    JSR UNKNOWN_17AF53
+    BCC UNKNOWN_17AF4E
+UNKNOWN_17AF3E:
+    LDY #$01
+    LDA ($5E),Y
+    PHA
+    INY
+    LDA ($5E),Y
+    STA $5F
+    PLA
+    STA $5E
+    JMP UNKNOWN_17AD9C
+
+UNKNOWN_17AF4E:
+    LDA #$03
+    JMP UNKNOWN_17AFCD
+
+UNKNOWN_17AF53:
+    LDY #$00
+    LDA ($5E),Y
+    AND #$0F
+    JSR UNKNOWN_F2AE
+
+    ; Return address
+    .WORD UNKNOWN_17AF7A
+
+    ; Jump table
+    .WORD UNKNOWN_17B0B0
+    .WORD UNKNOWN_17B0CC
+    .WORD UNKNOWN_17B0F7
+    .WORD UNKNOWN_17B112
+    .WORD UNKNOWN_17B125
+    .WORD UNKNOWN_17B131
+    .WORD UNKNOWN_17B0BC
+    .WORD UNKNOWN_17B150
+    .WORD UNKNOWN_17B164
+    .WORD UNKNOWN_17B169
+    .WORD UNKNOWN_17B174
+    .WORD UNKNOWN_17B180
+    .WORD UNKNOWN_17B188
+    .WORD UNKNOWN_17B194
+
+UNKNOWN_17AF7A:
+    RTS
+
+UNKNOWN_17AF7B:
+    LDA $5F
+    PHA
+    LDA $5E
+    PHA
+    JSR UNKNOWN_17AFD3
+    JSR UNKNOWN_17AD9C
+    PLA
+    STA $5E
+    PLA
+    STA $5F
+    LDA #$03
+    JMP UNKNOWN_17AFCD
+
+UNKNOWN_17AF92:
+    JSR UNKNOWN_17AFD3
+    JMP UNKNOWN_17AD9C
+
+UNKNOWN_17AF98:
+    LDY #$00
+    LDA ($5E),Y
+    AND #$0F
+    TAX
+    LDA #$01
+    JSR UNKNOWN_17AFE1
+@LOCAL_1:
+    TXA
+    PHA
+    LDA $5F
+    PHA
+    LDA $5E
+    PHA
+    JSR UNKNOWN_17AD9C
+    LDA $5E
+    STA $60
+    LDA $5F
+    STA $61
+    PLA
+    STA $5E
+    PLA
+    STA $5F
+    PLA
+    TAX
+    DEX
+    BNE @LOCAL_1
+    LDA $60
+    STA $5E
+    LDA $61
+    STA $5F
+    JMP UNKNOWN_17AD9C
+
+UNKNOWN_17AFCD:
+    JSR UNKNOWN_17AFE1
+    JMP UNKNOWN_17AD9C
+
+UNKNOWN_17AFD3:
+    LDY #$01
+    LDA ($5E),Y
+    PHA
+    INY
+    LDA ($5E),Y
+    STA $5F
+    PLA
+    STA $5E
+    RTS
+
+UNKNOWN_17AFE1:
+    CLC
+    ADC $5E
+    STA $5E
+    LDA #$00
+    ADC $5F
+    STA $5F
+    RTS
+
+UNKNOWN_17AFED:
+    LDY $53
+    JMP $B513
+
+UNKNOWN_17AFF2:
+    LDY $54
+    BPL @LOCAL_1
+    JMP UNKNOWN_17B555
+@LOCAL_1:
+    LDA #$01
+    STA $47
+    RTS
+
+UNKNOWN_17AFFE:
+    LDY $54
+    BPL @LOCAL_1
+    JMP UNKNOWN_17B5D3
+@LOCAL_1:
+    JMP UNKNOWN_17B6B2
+
+UNKNOWN_17B008:
+    LDY $54
+    BPL @LOCAL_1
+    JMP UNKNOWN_17B67C
+@LOCAL_1:
+    JMP UNKNOWN_17B6F1
+
+UNKNOWN_17B012:
+    LDA #$2D
+    JSR UNKNOWN_17A3F8
+    JSR UNKNOWN_17B069
+    BCS @LOCAL_1
+    LDA #$40
+    JSR UNKNOWN_17A3F8
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17B022:
+    LDA #$2E
+    JSR UNKNOWN_17A3F8
+    JSR UNKNOWN_17B069
+    BCS @LOCAL_1
+    LDA #$41
+    JSR UNKNOWN_17A3F8
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17B032:
+    LDA #$02
+    STA $47
+    RTS
+
+UNKNOWN_17B037:
+    LDY $54
+    BPL @LOCAL_1
+    JMP UNKNOWN_17B5DA
+@LOCAL_1:
+    JMP UNKNOWN_17B6BB
+
+UNKNOWN_17B041:
+    LDY $54
+    BPL @LOCAL_1
+    JMP UNKNOWN_17B5E1
+@LOCAL_1:
+    JMP UNKNOWN_17B6C4
+
+UNKNOWN_17B04B:
+    LDY $54
+    BPL @LOCAL_1
+    JMP UNKNOWN_17B5E8
+@LOCAL_1:
+    JMP UNKNOWN_17B6CD
+
+UNKNOWN_17B055:
+    LDY $54
+    BPL @LOCAL_1
+    JMP UNKNOWN_17B5EF
+@LOCAL_1:
+    JMP UNKNOWN_17B6D6
+
+UNKNOWN_17B05F:
+    LDY $54
+    BPL @LOCAL_1
+    JMP UNKNOWN_17B5F6
+@LOCAL_1:
+    JMP UNKNOWN_17B6DF
+
+UNKNOWN_17B069:
+    LDY #$80
+@LOCAL_1:
+    CPY $53
+    BEQ @LOCAL_2
+    LDA $061E,Y
+    AND #$01
+    BNE @LOCAL_3
+@LOCAL_2:
+    TYA
+    CLC
+    ADC #$20
+    TAY
+    BNE @LOCAL_1
+    CLC
+    RTS
+@LOCAL_3:
+    STY $54
+    JSR UNKNOWN_17B513
+    LDY $54
+    LDA $061E,Y
+    AND #$FE
+    STA $061E,Y
+    LDA #$00
+    STA $061D,Y
+    LDY $53
+    LDA $0600,Y
+    LDY $54
+    STA $0600,Y
+    LDA #$42
+    JSR UNKNOWN_17A3F8
+    SEC
+    RTS
+
+UNKNOWN_17B0A4:
+    LDA #$19
+    LDX #$FB
+    LDY #$A7
+    JSR UNKNOWN_FDF3
+    JMP UNKNOWN_F5E5
+
+UNKNOWN_17B0B0:
+    LDY $53
+    LDA $0600,Y
+    BEQ UNKNOWN_17B0CA
+    LDA $0601,Y
+    BMI UNKNOWN_17B0CA
+
+UNKNOWN_17B0BC:
+    LDY $54
+    LDA $0600,Y
+    BEQ UNKNOWN_17B0CA
+    LDA $0601,Y
+    BMI UNKNOWN_17B0CA
+    CLC
+    RTS
+UNKNOWN_17B0CA:
+    SEC
+    RTS
+
+UNKNOWN_17B0CC:
+    LDA $23
+    BNE @LOCAL_1
+    LDY $54
+    LDA $0601,Y
+    AND #$70
+    BNE @LOCAL_1
+    LDA $061E,Y
+    BMI @LOCAL_1
+    LDA $060B,Y
+    STA $60
+    LDY $53
+    LDA $060B,Y
+    STA $62
+    JSR UNKNOWN_17B1A2
+    LDA $60
+    CMP $62
+    BCS @LOCAL_2
+@LOCAL_1:
+    CLC
+    RTS
+@LOCAL_2:
+    SEC
+    RTS
+
+UNKNOWN_17B0F7:
+    JSR UNKNOWN_17BFE2
+    BCS @LOCAL_1
+    LDY $53
+    LDA $060B,Y
+    STA $60
+    LDY $54
+    LDA $060B,Y
+    STA $62
+    JSR UNKNOWN_17B1A2
+    LDA $62
+    CMP $60
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17B112:
+    LDY $53
+    LDA $061E,Y
+    AND #$80
+    EOR #$80
+    ROL
+    BCS @LOCAL_1
+    JSR UNKNOWN_F1ED
+    AND #$80
+    ROL
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17B125:
+    LDA $53
+    BMI @LOCAL_1
+    LDA $23
+    BEQ @LOCAL_1
+    CLC
+    RTS
+@LOCAL_1:
+    SEC
+    RTS
+
+UNKNOWN_17B131:
+    LDY $54
+    BMI @LOCAL_2
+    LDA $0618,Y
+    STA $60
+    LDA $0619,Y
+    STA $61
+    LDY #$20
+@LOCAL_1:
+    LDA ($60),Y
+    CMP #$68
+    BEQ @LOCAL_3
+    INY
+    CPY #$28
+    BNE @LOCAL_1
+@LOCAL_2:
+    SEC
+    RTS
+@LOCAL_3:
+    CLC
+    RTS
+
+UNKNOWN_17B150:
+    LDY $54
+    LDA $0602,Y
+    AND #$80
+    BNE @LOCAL_1
+    LDA $0602,Y
+    AND #$01
+    BNE @LOCAL_2
+@LOCAL_1:
+    SEC
+    RTS
+@LOCAL_2:
+    CLC
+    RTS
+
+UNKNOWN_17B164:
+    JSR UNKNOWN_F1ED
+    ASL
+    RTS
+
+UNKNOWN_17B169:
+    LDY $54
+    LDA $0602,Y
+    AND #$80
+    EOR #$80
+    ROL
+    RTS
+
+UNKNOWN_17B174:
+    LDY $54
+    LDA $0602,Y
+    AND #$04
+    EOR #$04
+    CMP #$01
+    RTS
+
+UNKNOWN_17B180:
+    LDA $21
+    BNE @LOCAL_1
+    SEC
+    RTS
+@LOCAL_1:
+    CLC
+    RTS
+
+UNKNOWN_17B188:
+    LDY $54
+    LDA $0611,Y
+    AND #$06
+    EOR #$06
+    CMP #$01
+    RTS
+
+UNKNOWN_17B194:
+    LDA $56
+    CMP #$05
+    BEQ @LOCAL_1
+    CMP #$06
+    BEQ @LOCAL_1
+    SEC
+    RTS
+@LOCAL_1:
+    CLC
+    RTS
+
+UNKNOWN_17B1A2:
+    LDA #$01
+    STA $61
+    SEC
+    LDA $60
+    SBC $62
+    STA $60
+    LDA $61
+    SBC #$00
+    LSR
+    ROR $60
+    SEC
+    LDA $60
+    SBC #$66
+    BCS @LOCAL_1
+    LDA #$00
+@LOCAL_1:
+    STA $60
+    JSR UNKNOWN_F1ED
+    STA $62
+    RTS
+
+UNKNOWN_17B1C5:
+    LDY $53
+    LDA $061E,Y
+    AND #$40
+    EOR #$40
+    CMP #$01
+    RTS
+
+UNKNOWN_17B1D1:
+    LDY $53
+    SEC
+    LDA $0605,Y
+    SBC $4E
+    LDA $0606,Y
+    SBC $4F
+    RTS
+
+UNKNOWN_17B1DF:
+    RTS
+
+UNKNOWN_17B1E0:
+    LDY $53
+    LDA $0601,Y
+    AND #$08
+    BNE @LOCAL_1
+    LDA $061C,Y
+    STA $54
+    RTS
+@LOCAL_1:
+    JSR UNKNOWN_F1ED
+    AND #$E0
+    TAY
+    LDA $0600,Y
+    BEQ @LOCAL_1
+    LDA $0601,Y
+    BMI @LOCAL_1
+    STY $54
+    RTS
+
+UNKNOWN_17B202:
+    LDY $53
+    LDA $0601,Y
+    AND #$08
+    BEQ UNKNOWN_17B212
+    JSR UNKNOWN_F1ED
+    AND #$80
+    BNE UNKNOWN_17B22D
+
+UNKNOWN_17B212:
+    LDX #$80
+    LDA $53
+    BPL @LOCAL_1
+    LDX #$00
+@LOCAL_1:
+    STX $54
+    RTS
+
+UNKNOWN_17B21D:
+    LDY $53
+    LDA $0601,Y
+    AND #$08
+    BEQ UNKNOWN_17B22D
+    JSR UNKNOWN_F1ED
+    AND #$80
+    BNE UNKNOWN_17B212
+
+UNKNOWN_17B22D:
+    LDX #$00
+    LDY $53
+    BPL @LOCAL_1
+    LDX #$80
+@LOCAL_1:
+    STX $54
+    RTS
+
+UNKNOWN_17B238:
+    LDA $53
+    STA $54
+    RTS
+
+UNKNOWN_17B23D:
+    LDX #$00
+    LDY $53
+    BPL @LOCAL_1
+    LDX #$80
+@LOCAL_1:
+    STX $54
+    RTS
+
+UNKNOWN_17B248:
+    CLC
+    LDA $54
+    ADC #$20
+    STA $54
+    RTS
+
+UNKNOWN_17B250:
+    LDY $54
+    LDA $0609,Y
+    STA $64
+    LDA $060A,Y
+    STA $65
+    SEC
+    LDY $53
+    LDA $0607,Y
+    STA $66
+    STA $68
+    SBC $64
+    LDA $0608,Y
+    STA $67
+    STA $69
+    SBC $65
+    BCC @LOCAL_4
+    LSR $65
+    ROR $64
+    SEC
+    LDA $66
+    SBC $64
+    STA $60
+    LDA $67
+    SBC $65
+    STA $61
+@LOCAL_1:
+    LDA $56
+    CMP #$01
+    BNE @LOCAL_2
+    JSR UNKNOWN_F1ED
+    AND #$07
+    ORA #$04
+    STA $60
+    LDA #$00
+    STA $61
+@LOCAL_2:
+    LDA $60
+    ORA $61
+    BNE @LOCAL_3
+    INC $60
+@LOCAL_3:
+    LDA $60
+    STA $4E
+    LDA $61
+    STA $4F
+    RTS
+@LOCAL_4:
+    ASL $66
+    ROL $67
+    CLC
+    LDA $66
+    ADC $68
+    STA $66
+    LDA $67
+    ADC $69
+    STA $67
+    SEC
+    LDA $66
+    SBC $64
+    STA $60
+    LDA $67
+    SBC $65
+    STA $61
+    BCS @LOCAL_5
+    LDA #$00
+    STA $60
+    STA $61
+@LOCAL_5:
+    LSR $61
+    ROR $60
+    LSR $61
+    ROR $60
+    JMP @LOCAL_1
+
+UNKNOWN_17B2D9:
+    LDY $53
+    LDA $0607,Y
+    STA $4E
+    LDA $0608,Y
+    STA $4F
+    LDA $56
+    CMP #$01
+    BNE @LOCAL_1
+    JSR UNKNOWN_F1ED
+    AND #$0F
+    ORA #$08
+    STA $4E
+    LDA #$00
+    STA $4F
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17B2F9:
+    LDA $64
+    STA $4E
+    LDA #$00
+    STA $4F
+    RTS
+
+UNKNOWN_17B302:
+    LDA $56
+    CMP #$05
+    BNE @LOCAL_2
+    LDA $55
+    JSR UNKNOWN_17A3F8
+    LDX $55
+    INX
+    CPX #$9E
+    BNE @LOCAL_1
+    INC $56
+@LOCAL_1:
+    STX $55
+@LOCAL_2:
+    RTS
+
+UNKNOWN_17B319:
+    LDA $57
+    ORA $64
+    STA $57
+    RTS
+
+UNKNOWN_17B320:
+    LDA #$6A
+    JSR UNKNOWN_17A3F8
+    LDA $56
+    CMP #$02
+    BNE @LOCAL_1
+    LDA #$95
+    JMP UNKNOWN_17A3F8
+@LOCAL_1:
+    CMP #$03
+    BNE @LOCAL_2
+    LDA #$94
+    JMP UNKNOWN_17A3F8
+@LOCAL_2:
+    CMP #$04
+    BNE @LOCAL_3
+    LDA #$93
+    JMP UNKNOWN_17A3F8
+@LOCAL_3:
+    CMP #$05
+    BNE @LOCAL_4
+    LDA #$01
+    JMP UNKNOWN_17A3F8
+@LOCAL_4:
+    CMP #$06
+    BNE @LOCAL_5
+    LDA #$01
+    JMP UNKNOWN_17A3F8
+@LOCAL_5:
+    LDY $54
+    BMI @LOCAL_6
+    LDA #$90
+    JMP UNKNOWN_17A3F8
+@LOCAL_6:
+    LDY $54
+    LDA $0607,Y
+    STA $0590
+    LDA $0608,Y
+    STA $0591
+    LDA $0609,Y
+    STA $0592
+    LDA $060A,Y
+    STA $0593
+    LDA #$24
+    JSR UNKNOWN_17A3F8
+    LDA #$25
+    JSR UNKNOWN_17A3F8
+    LDY $54
+    LDA $0602,Y
+    PHA
+    AND #$40
+    BEQ @LOCAL_7
+    LDA #$6B
+    JSR UNKNOWN_17A3F8
+@LOCAL_7:
+    PLA
+    PHA
+    AND #$20
+    BEQ @LOCAL_8
+    LDA #$6C
+    JSR UNKNOWN_17A3F8
+@LOCAL_8:
+    PLA
+    PHA
+    AND #$10
+    BEQ @LOCAL_9
+    LDA #$6D
+    JSR UNKNOWN_17A3F8
+@LOCAL_9:
+    PLA
+    PHA
+    AND #$80
+    BNE @LOCAL_10
+    PLA
+    PHA
+    AND #$01
+    BEQ @LOCAL_10
+    LDA #$6F
+    JSR UNKNOWN_17A3F8
+@LOCAL_10:
+    PLA
+    LDA #$FF
+    JMP UNKNOWN_17A3F8
+
+
+; TBD: Unreachable? Dead code?
+    LDA #$90
+    JMP UNKNOWN_17A3F8
+
+
+UNKNOWN_17B3C2:
+    LDX #$0F
+    LDA $53
+    BMI @LOCAL_1
+    LDX #$01
+@LOCAL_1:
+    TXA
+    JMP UNKNOWN_F41F
+
+UNKNOWN_17B3CE:
+    LDA $64
+    STA $58
+    RTS
+
+UNKNOWN_17B3D3:
+    LDA $64
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17B3D8:
+    LDA $64
+    JMP UNKNOWN_F41F
+
+UNKNOWN_17B3DD:
+    TYA
+    BMI @LOCAL_1
+    LDA $0611,Y
+    CMP #$06
+    BNE @LOCAL_1
+    LDA #$00
+    STA $56
+    LDX #$88
+    JMP @LOCAL_4
+@LOCAL_1:
+    JSR UNKNOWN_17B4CA
+    CMP #$01
+    BNE @LOCAL_2
+    LDX #$19
+    JMP @LOCAL_4
+@LOCAL_2:
+    CMP #$02
+    BNE @LOCAL_3
+    LDX #$1A
+    JMP @LOCAL_4
+@LOCAL_3:
+    JSR UNKNOWN_17B42D
+    JMP UNKNOWN_17B496
+@LOCAL_4:
+    LDA $54
+    PHA
+    LDA $53
+    PHA
+    LDA $5F
+    PHA
+    LDA $5E
+    PHA
+    STY $53
+    TXA
+    JSR UNKNOWN_17AD7B
+    PLA
+    STA $5E
+    PLA
+    STA $5F
+    PLA
+    STA $53
+    PLA
+    STA $54
+    TAY
+    JMP UNKNOWN_17B496
+
+UNKNOWN_17B42D:
+    TYA
+    PHA
+    LDA #$00
+    STA $0603,Y
+    STA $0604,Y
+    LDA #$80
+    STA $0601,Y
+    TYA
+    BPL @LOCAL_2
+    LDA #$00
+    STA $0600,Y
+    LDA $0618,Y
+    STA $60
+    LDA $0619,Y
+    STA $61
+    TYA
+    PHA
+    CLC
+    LDY #$1A
+    LDA ($60),Y
+    ADC $49
+    STA $49
+    INY
+    LDA ($60),Y
+    ADC $4A
+    STA $4A
+    LDA #$00
+    ADC $4B
+    STA $4B
+    CLC
+    LDY #$1C
+    LDA ($60),Y
+    ADC $4C
+    STA $4C
+    INY
+    LDA ($60),Y
+    ADC $4D
+    STA $4D
+    LDY #$1E
+    LDA ($60),Y
+    BEQ @LOCAL_1
+    STA $48
+@LOCAL_1:
+    LDA #$06
+    STA $07F0
+    PLA
+    TAY
+    JSR UNKNOWN_17B555
+    JMP @LOCAL_3
+@LOCAL_2:
+    LDA #$15
+    JSR UNKNOWN_F41F
+@LOCAL_3:
+    JSR UNKNOWN_F5E5
+    PLA
+    TAY
+    RTS
+
+UNKNOWN_17B496:
+    TYA
+    PHA
+    BMI @LOCAL_1
+    LDA $0611,Y
+    CMP #$06
+    BEQ @LOCAL_2
+    LDA #$10
+    JSR UNKNOWN_17A3F8
+    JMP @LOCAL_2
+@LOCAL_1:
+    LDA $56
+    CMP #$06
+    BEQ @LOCAL_2
+    LDA $0618,Y
+    STA $60
+    LDA $0619,Y
+    STA $61
+    LDY #$0A
+    LDA ($60),Y
+    AND #$1C
+    LSR
+    LSR
+    CLC
+    ADC #$79
+    JSR UNKNOWN_17A3F8
+@LOCAL_2:
+    PLA
+    TAY
+    RTS
+
+UNKNOWN_17B4CA:
+    TYA
+    PHA
+    LDA $0618,Y
+    STA $60
+    LDA $0619,Y
+    STA $61
+    LDY #$08
+    LDA ($60),Y
+    AND #$1C
+    LSR
+    LSR
+    STA $60
+    PLA
+    TAY
+    LDA $60
+    RTS
+
+UNKNOWN_17B4E5:
+    LDY $53
+    CLC
+    LDA $0618,Y
+    ADC #$20
+    STA $60
+    LDA $0619,Y
+    ADC #$00
+    STA $61
+    LDY $53
+    LDA $0610,Y
+    TAY
+
+UNKNOWN_17B4FC:
+    JSR UNKNOWN_FDE7
+@LOCAL_1:
+    CPY #$07
+    BEQ @LOCAL_2
+    INY
+    LDA ($60),Y
+    DEY
+    STA ($60),Y
+    INY
+    BNE @LOCAL_1
+@LOCAL_2:
+    LDA #$00
+    STA ($60),Y
+    JMP UNKNOWN_FDED
+
+UNKNOWN_17B513:
+    JSR UNKNOWN_17B5BC
+    LDA $0601,Y
+    AND #$7F
+    STA $0601,Y
+    LDA #$22
+    STA $60
+    LDA #$FF
+    STA $61
+    LDA #$FF
+    STA $62
+    JSR UNKNOWN_17B589
+    LDA #$00
+    STA $45
+    TYA
+    PHA
+    LDA $061A,Y
+    AND #$03
+    TAX
+    LDY #$1F
+    LDA ($5C),Y
+    STA $40,X
+    PLA
+    TAY
+    LDA $061C,Y
+    LDX $65
+    STA $0300,X
+    LDA #$01
+    STA $E5
+    JSR UNKNOWN_FD41
+    LDA #$80
+    STA $E5
+    RTS
+
+UNKNOWN_17B555:
+    JSR $B5BC
+    LDA #$00
+    LDX $65
+    STA $0300,X
+    LDA #$01
+    STA $E5
+    JSR UNKNOWN_FD41
+    LDA #$80
+    STA $E5
+    LDA #$00
+    STA $0600,Y
+    LDA #$00
+    STA $60
+    LDA #$23
+    STA $61
+    LDA #$01
+    STA $62
+    JSR UNKNOWN_17B589
+    LDA $061A,Y
+    AND #$03
+    TAX
+    LDA #$7C
+    STA $40,X
+    RTS
+
+UNKNOWN_17B589:
+    TYA
+    PHA
+    LDA $061A,Y
+    AND #$03
+    TAX
+    LDY #$1F
+    LDA ($5C),Y
+    ORA #$80
+    STA $40,X
+    PLA
+    TAY
+    LDA #$80
+    STA $45
+@LOCAL_1:
+    LDA $60
+    STA $44
+    AND #$01
+    BNE @LOCAL_2
+    LDA $45
+    EOR #$40
+    STA $45
+@LOCAL_2:
+    JSR UNKNOWN_FD41
+    CLC
+    LDA $60
+    ADC $62
+    STA $60
+    CMP $61
+    BNE @LOCAL_1
+    RTS
+
+UNKNOWN_17B5BC:
+    LDA $0618,Y
+    STA $5C
+    LDA $0619,Y
+    STA $5D
+    LDA $061A,Y
+    AND #$03
+    STA $64
+    ASL
+    ASL
+    ASL
+    STA $65
+    RTS
+
+UNKNOWN_17B5D3:
+    LDA #$0F
+    LDX #$03
+    JMP UNKNOWN_17B626
+
+UNKNOWN_17B5DA:
+    LDA #$16
+    LDX #$03
+    JMP UNKNOWN_17B626
+
+UNKNOWN_17B5E1:
+    LDA #$12
+    LDX #$03
+    JMP UNKNOWN_17B626
+
+UNKNOWN_17B5E8:
+    LDA #$31
+    LDX #$03
+    JMP UNKNOWN_17B626
+
+UNKNOWN_17B5EF:
+    LDA #$28
+    LDX #$03
+    JMP UNKNOWN_17B626
+
+UNKNOWN_17B5F6:
+    LDA #$2A
+    LDX #$03
+    JMP UNKNOWN_17B626
+
+UNKNOWN_17B5FD:
+    LDX #$03
+@LOCAL_1:
+    TXA
+    PHA
+    LDA #$05
+    STA $07F0
+    JSR UNKNOWN_F1ED
+    AND #$03
+    TAX
+    INX
+@LOCAL_2:
+    TXA
+    PHA
+    LDA #$01
+    STA $07F0
+    PLA
+    PHA
+    LDX #$03
+    JSR UNKNOWN_17B626
+    PLA
+    TAX
+    DEX
+    BNE @LOCAL_2
+    PLA
+    TAX
+    DEX
+    BNE @LOCAL_1
+    RTS
+
+UNKNOWN_17B626:
+    STA $61
+    STX $60
+    LDA #$02
+    JSR UNKNOWN_F41F
+    LDY $54
+    JSR UNKNOWN_17B5BC
+    JSR UNKNOWN_FD33
+    LDX $60
+@LOCAL_1:
+    TXA
+    PHA
+    LDX $65
+    LDA $0300,X
+    PHA
+    LDA #$00
+    STA $0300,X
+    LDA #$01
+    STA $E5
+    JSR UNKNOWN_FD41
+    LDA #$7C
+    LDX $64
+    STA $40,X
+    LDA $61
+    JSR UNKNOWN_F4B8
+    JSR UNKNOWN_FD41
+    PLA
+    LDX $65
+    STA $0300,X
+    LDA #$01
+    STA $E5
+    JSR UNKNOWN_FD41
+    LDY #$1F
+    LDA ($5C),Y
+    LDX $64
+    STA $40,X
+    JSR UNKNOWN_F4B6
+    JSR UNKNOWN_FD41
+    PLA
+    TAX
+    DEX
+    BNE @LOCAL_1
+    RTS
+
+UNKNOWN_17B67C:
+    LDA #$02
+    JSR UNKNOWN_F41F
+    JSR UNKNOWN_17B5BC
+    LDY $54
+    LDA $061C,Y
+    PHA
+    LDX $65
+    LDA $0300,X
+    LDY $54
+    STA $061C,Y
+    LDA #$00
+    LDX $65
+    STA $0300,X
+    LDA #$01
+    STA $E5
+    JSR UNKNOWN_FD41
+    LDA #$80
+    STA $E5
+    LDY $54
+    JSR UNKNOWN_17B513
+    PLA
+    LDY $54
+    STA $061C,Y
+    RTS
+
+UNKNOWN_17B6B2:
+    LDX #$41
+    LDY #$9F
+    LDA #$0F
+    JMP UNKNOWN_17B6FA
+
+UNKNOWN_17B6BB:
+    LDX #$41
+    LDY #$9F
+    LDA #$16
+    JMP UNKNOWN_17B6FA
+
+UNKNOWN_17B6C4:
+    LDX #$41
+    LDY #$9F
+    LDA #$12
+    JMP UNKNOWN_17B6FA
+
+UNKNOWN_17B6CD:
+    LDX #$41
+    LDY #$9F
+    LDA #$31
+    JMP UNKNOWN_17B6FA
+
+UNKNOWN_17B6D6:
+    LDX #$41
+    LDY #$9F
+    LDA #$28
+    JMP UNKNOWN_17B6FA
+
+UNKNOWN_17B6DF:
+    LDX #$61
+    LDY #$9F
+    LDA #$2A
+    JMP UNKNOWN_17B6FA
+
+UNKNOWN_17B6E8:
+    LDX #$61
+    LDY #$9F
+    LDA #$0F
+    JMP UNKNOWN_17B6FA
+
+UNKNOWN_17B6F1:
+    LDX #$4B
+    LDY #$9F
+    LDA #$0F
+    ; This jump is a no-op
+    JMP UNKNOWN_17B6FA
+
+UNKNOWN_17B6FA:
+    STA $64
+    STX $60
+    STY $61
+    LDA #$10
+    JSR UNKNOWN_F41F
+    JSR UNKNOWN_FD33
+    LDY #$00
+    LDA ($60),Y
+    STA $62
+    INY
+    LDA ($60),Y
+    STA $63
+    CLC
+    LDA $60
+    ADC #$02
+    STA $60
+    LDA $61
+    ADC #$00
+    STA $61
+@LOCAL_1:
+    LDY #$00
+@LOCAL_2:
+    TYA
+    PHA
+    AND #$02
+    BEQ @LOCAL_3
+    LDA $64
+    JSR UNKNOWN_F4B8
+    JMP @LOCAL_4
+@LOCAL_3:
+    JSR UNKNOWN_F4B6
+@LOCAL_4:
+    PLA
+    TAY
+    LDA ($60),Y
+    STA $E9
+    INY
+    LDA ($60),Y
+    STA $E8
+    INY
+    LDA #$01
+    STA $E5
+    JSR UNKNOWN_FD41
+    CPY $63
+    BNE @LOCAL_2
+    DEC $62
+    BNE @LOCAL_1
+    LDA #$00
+    STA $E8
+    STA $E9
+    JSR UNKNOWN_FD41
+    JMP UNKNOWN_F4B6
+
+UNKNOWN_17B75A:
+    LDA $47
+    CMP #$01
+    BEQ @LOCAL_4
+    CMP #$02
+    BEQ @LOCAL_4
+    LDY #$00
+@LOCAL_1:
+    LDA $0600,Y
+    BEQ @LOCAL_2
+    LDA $0611,Y
+    AND #$06
+    EOR #$06
+    BEQ @LOCAL_2
+    LDA $0601,Y
+    AND #$E0
+    BEQ @LOCAL_5
+@LOCAL_2:
+    TYA
+    CLC
+    ADC #$20
+    TAY
+    BPL @LOCAL_1
+    LDA #$80
+    STA $0601
+    STA $0621
+    STA $0641
+    STA $0661
+    LDA $56
+    CMP #$04
+    BNE @LOCAL_3
+    LDA #$03
+    STA $47
+    LDA #$04
+    JSR UNKNOWN_F41F
+    LDA #$8F
+    JSR UNKNOWN_17A3F8
+    JMP @LOCAL_4
+@LOCAL_3:
+    LDA #$00
+    STA $53
+    LDA #$0E
+    JSR UNKNOWN_17A3F8
+@LOCAL_4:
+    SEC
+    RTS
+@LOCAL_5:
+    LDA $0680
+    ORA $06A0
+    ORA $06C0
+    ORA $06E0
+    BNE @LOCAL_9
+    LDA $23
+    BEQ @LOCAL_6
+    LDA #$31
+    JSR UNKNOWN_17A3F8
+@LOCAL_6:
+    LDA $56
+    CMP #$06
+    BNE @LOCAL_7
+    LDA #$00
+    STA $54
+    JSR UNKNOWN_17B8D4
+    LDA #$20
+    STA $54
+    JSR UNKNOWN_17B8D4
+    LDA #$40
+    STA $54
+    JSR UNKNOWN_17B8D4
+    JMP @LOCAL_8
+@LOCAL_7:
+    LDA #$05
+    JSR UNKNOWN_F255
+    LDA #$0D
+    JSR UNKNOWN_17A3F8
+@LOCAL_8:
+    SEC
+    RTS
+@LOCAL_9:
+    LDA $56
+    CMP #$01
+    BNE @LOCAL_10
+    LDY #$00
+    JSR UNKNOWN_F673
+    BCS @LOCAL_10
+    SEC
+    RTS
+@LOCAL_10:
+    CLC
+    RTS
+
+UNKNOWN_17B804:
+    LDY #$01
+    LDA ($5E),Y
+    JSR UNKNOWN_F2AE
+
+    ; Return address
+    .WORD UNKNOWN_17B863
+
+    ; Jump table
+    .WORD UNKNOWN_17B868
+    .WORD UNKNOWN_17B879
+    .WORD UNKNOWN_17B899
+    .WORD UNKNOWN_17B8AF
+    .WORD UNKNOWN_17B8BD
+    .WORD UNKNOWN_17B8CB
+    .WORD UNKNOWN_17B915
+    .WORD UNKNOWN_17BA07
+    .WORD UNKNOWN_17BA1B
+    .WORD UNKNOWN_17BA2A
+    .WORD UNKNOWN_17BA3C
+    .WORD UNKNOWN_17BA6E
+    .WORD UNKNOWN_17BA7A
+    .WORD UNKNOWN_17BA95
+    .WORD UNKNOWN_17B8AA
+    .WORD UNKNOWN_17B8F2
+    .WORD UNKNOWN_17BA86
+    .WORD UNKNOWN_17B88A
+    .WORD UNKNOWN_17BAE4
+    .WORD UNKNOWN_17BAFA
+    .WORD UNKNOWN_17BB0D
+    .WORD UNKNOWN_17BB25
+    .WORD UNKNOWN_17BB3D
+    .WORD UNKNOWN_17BB55
+    .WORD UNKNOWN_17BB78
+    .WORD UNKNOWN_17BB83
+    .WORD UNKNOWN_17BB8C
+    .WORD UNKNOWN_17BB9D
+    .WORD UNKNOWN_17BBB0
+    .WORD UNKNOWN_17BBCD
+    .WORD UNKNOWN_17BBEB
+    .WORD UNKNOWN_17BBF9
+    .WORD UNKNOWN_17BC02
+    .WORD UNKNOWN_17BC0B
+    .WORD UNKNOWN_17BC14
+    .WORD UNKNOWN_17BC1D
+    .WORD UNKNOWN_17BC26
+    .WORD UNKNOWN_17BC38
+    .WORD UNKNOWN_17BC2F
+    .WORD UNKNOWN_17BCD0
+    .WORD UNKNOWN_17BD2B
+    .WORD UNKNOWN_17BC5D
+    .WORD UNKNOWN_17BD44
+
+UNKNOWN_17B863:
+    LDA #$02
+    JMP UNKNOWN_17AFCD
+
+UNKNOWN_17B868:
+    JSR UNKNOWN_17BDDD
+
+UNKNOWN_17B86B:
+    LDX $54
+    LDY #$03
+    JSR UNKNOWN_17BEF2
+    LDX #$0A
+    LDA #$3E
+    JMP UNKNOWN_17BD5B
+
+UNKNOWN_17B879:
+    JSR UNKNOWN_17BDDD
+    LDX $54
+    LDY #$05
+    JSR UNKNOWN_17BEF2
+    LDX #$0A
+    LDA #$3D
+    JMP UNKNOWN_17BD5B
+
+UNKNOWN_17B88A:
+    JSR UNKNOWN_17BDDD
+    LDX $54
+    LDY #$07
+    JSR UNKNOWN_17BDE8
+    LDA #$20
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17B899:
+    JSR UNKNOWN_17BDDD
+    LDX $54
+    LDY #$0C
+    JSR UNKNOWN_17BE3B
+    LDX #$09
+    LDA #$23
+    JMP UNKNOWN_17BD5B
+
+UNKNOWN_17B8AA:
+    LDY $53
+    JMP UNKNOWN_17B42D
+
+UNKNOWN_17B8AF:
+    LDX $54
+    LDY #$07
+    JSR UNKNOWN_17BF00
+    LDX #$09
+    LDA #$20
+    JMP UNKNOWN_17BD5B
+
+UNKNOWN_17B8BD:
+    LDX $54
+    LDY #$09
+    JSR UNKNOWN_17BF00
+    LDX #$09
+    LDA #$22
+    JMP UNKNOWN_17BD5B
+
+UNKNOWN_17B8CB:
+    LDA #$FF
+    STA $4E
+    STA $4F
+    JMP UNKNOWN_17B86B
+
+UNKNOWN_17B8D4:
+    LDA #$FF
+    STA $4E
+    STA $4F
+    LDA #$00
+    LDX $54
+    STA $0601,X
+    LDY #$03
+    JSR UNKNOWN_17BEF2
+    LDX #$0A
+    LDA #$00
+    JSR UNKNOWN_17BD5B
+    LDX #$14
+    JMP UNKNOWN_F25E
+
+UNKNOWN_17B8F2:
+    JSR UNKNOWN_17BDDD
+    LDY $53
+    SEC
+    LDA $0603,Y
+    SBC $60
+    STA $0603,Y
+    LDA $0604,Y
+    SBC $61
+    STA $0604,Y
+    BCC @LOCAL_1
+    ORA $0603,Y
+    BEQ @LOCAL_1
+    JMP UNKNOWN_F5E5
+@LOCAL_1:
+    JMP UNKNOWN_17B3DD
+
+UNKNOWN_17B915:
+    LDA $56
+    CMP #$05
+    BEQ UNKNOWN_17B93E
+    CMP #$06
+    BEQ UNKNOWN_17B93E
+    JSR UNKNOWN_17BFE2
+    BCC UNKNOWN_17B93E
+
+UNKNOWN_17B924:
+    LDX #$03
+    LDY $53
+    LDA $0611,Y
+    CMP #$06
+    BNE @LOCAL_1
+    LDX #$3F
+@LOCAL_1:
+    STX $60
+    JSR UNKNOWN_F1ED
+    AND $60
+    STA $4E
+    LDA #$00
+    STA $4F
+UNKNOWN_17B93E:
+    LDA $54
+    PHA
+    JSR UNKNOWN_17BDDD
+    LDY $54
+    LDA $061E,Y
+    AND #$04
+    BEQ @LOCAL_1
+    LDA $61
+    PHA
+    LDA $60
+    PHA
+    LDA #$53
+    JSR UNKNOWN_17A3F8
+    PLA
+    STA $60
+    PLA
+    STA $61
+    LDY $53
+    STY $54
+@LOCAL_1:
+    LDA $061E,Y
+    AND #$10
+    BEQ @LOCAL_2
+    LSR $61
+    ROR $60
+@LOCAL_2:
+    LDA $061E,Y
+    AND #$08
+    BEQ @LOCAL_3
+    LSR $61
+    ROR $60
+@LOCAL_3:
+    JSR UNKNOWN_17BF74
+    LDA $60
+    ORA $61
+    BNE @LOCAL_4
+    INC $60
+@LOCAL_4:
+    LDA $60
+    STA $0590
+    PHA
+    LDA $61
+    STA $0591
+    PHA
+    LDA #$0C
+    JSR UNKNOWN_17A3F8
+    PLA
+    STA $61
+    PLA
+    STA $60
+    LDA $56
+    CMP #$03
+    BEQ @LOCAL_5
+    JSR UNKNOWN_17BFEF
+    BCS @LOCAL_6
+@LOCAL_5:
+    JSR UNKNOWN_17BFE2
+    BCS @LOCAL_6
+    LDY $54
+    SEC
+    LDA $0603,Y
+    SBC $60
+    STA $0603,Y
+    LDA $0604,Y
+    SBC $61
+    STA $0604,Y
+    BCC @LOCAL_9
+    ORA $0603,Y
+    BEQ @LOCAL_9
+@LOCAL_6:
+    LDA $0601,Y
+    AND #$0C
+    BEQ @LOCAL_7
+    JSR UNKNOWN_F1ED
+    AND #$C0
+    BNE @LOCAL_7
+    LDA $0601,Y
+    AND #$F3
+    STA $0601,Y
+    LDA #$8D
+    JSR UNKNOWN_17A3F8
+@LOCAL_7:
+    LDA $0601,Y
+    AND #$10
+    BEQ @LOCAL_8
+    JSR UNKNOWN_F1ED
+    AND #$C0
+    BNE @LOCAL_8
+    LDA $0601,Y
+    AND #$EF
+    STA $0601,Y
+    LDA #$61
+    JSR UNKNOWN_17A3F8
+@LOCAL_8:
+    PLA
+    STA $54
+    JMP UNKNOWN_F5E5
+@LOCAL_9:
+    JSR UNKNOWN_17B3DD
+    PLA
+    STA $54
+    RTS
+
+UNKNOWN_17BA07:
+    JSR UNKNOWN_17BDDD
+    LDY $54
+    JSR UNKNOWN_17BF74
+    LDX $54
+    LDY #$09
+    JSR UNKNOWN_17BE72
+    LDA #$27
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17BA1B:
+    JSR UNKNOWN_17BDDD
+    LDX $54
+    LDY #$0B
+    JSR UNKNOWN_17BEC4
+    LDA #$26
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17BA2A:
+    JSR UNKNOWN_17BFE2
+    BCS @LOCAL_1
+    JSR UNKNOWN_17BFEF
+    BCS @LOCAL_1
+    LDY $54
+    JMP UNKNOWN_17B3DD
+@LOCAL_1:
+    JMP UNKNOWN_17B924
+
+UNKNOWN_17BA3C:
+    JSR UNKNOWN_17BFE2
+    BCS @LOCAL_1
+    JSR UNKNOWN_17BFEF
+    BCS @LOCAL_1
+    LDY $54
+    JSR UNKNOWN_F1ED
+    AND #$03
+    TAX
+    INX
+    TXA
+    SEC
+    SBC $0603,Y
+    LDA #$00
+    SBC $0604,Y
+    BCS @LOCAL_1
+    TXA
+    STA $0603,Y
+    LDA #$00
+    STA $0604,Y
+    LDX #$00
+    LDA #$38
+    JMP UNKNOWN_17BD5B
+@LOCAL_1:
+    JMP UNKNOWN_17BDD8
+
+UNKNOWN_17BA6E:
+    LDX $54
+    LDY #$07
+    JSR UNKNOWN_17BF15
+    LDA #$21
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17BA7A:
+    LDX $54
+    LDY #$09
+    JSR UNKNOWN_17BF15
+    LDA #$27
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17BA86:
+    JSR UNKNOWN_17BDDD
+    LDX $53
+    LDY #$07
+    JSR UNKNOWN_17BDE8
+    LDA #$5C
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17BA95:
+    JSR UNKNOWN_17BDDD
+    LDY $54
+    BMI @LOCAL_2
+    LDA $0618,Y
+    STA $62
+    LDA $0619,Y
+    STA $63
+    LDY #$11
+    CLC
+    LDA ($62),Y
+    ADC $60
+    STA $64
+    INY
+    LDA ($62),Y
+    ADC $61
+    STA $65
+    INY
+    LDA ($62),Y
+    ADC #$00
+    STA $66
+    BCC @LOCAL_1
+    LDA #$FF
+    STA $64
+    STA $65
+    STA $66
+@LOCAL_1:
+    JSR UNKNOWN_FDE7
+    LDY #$11
+    LDA $64
+    STA ($62),Y
+    INY
+    LDA $65
+    STA ($62),Y
+    INY
+    LDA $66
+    STA ($62),Y
+    JSR UNKNOWN_FDED
+@LOCAL_2:
+    LDX #$0A
+    LDA #$2F
+    JMP UNKNOWN_17BD5B
+
+UNKNOWN_17BAE4:
+    JSR UNKNOWN_17BFE2
+    BCS UNKNOWN_17BAF7
+    JSR UNKNOWN_17BF58
+    BCS UNKNOWN_17BAF7
+    LDA #$1B
+    LDY #$00
+    LDX #$80
+    JMP UNKNOWN_17BD7F
+
+UNKNOWN_17BAF7:
+    JMP UNKNOWN_17BDD8
+
+UNKNOWN_17BAFA:
+    JSR UNKNOWN_17BFE2
+    BCS UNKNOWN_17BAF7
+    JSR UNKNOWN_17BF58
+    BCS UNKNOWN_17BAF7
+    LDA #$4B
+    LDY #$00
+    LDX #$02
+    JMP UNKNOWN_17BD69
+
+UNKNOWN_17BB0D:
+    JSR UNKNOWN_17BFE2
+    BCS UNKNOWN_17BAF7
+    JSR UNKNOWN_17BFEF
+    BCS UNKNOWN_17BAF7
+    JSR UNKNOWN_17BF66
+    BCS UNKNOWN_17BAF7
+    LDA #$39
+    LDY #$00
+    LDX #$08
+    JMP UNKNOWN_17BD69
+
+UNKNOWN_17BB25:
+    JSR UNKNOWN_17BFE2
+    BCS UNKNOWN_17BAF7
+    JSR UNKNOWN_17BFEF
+    BCS UNKNOWN_17BAF7
+    JSR UNKNOWN_17BF66
+    BCS UNKNOWN_17BAF7
+    LDA #$3B
+    LDY #$00
+    LDX #$10
+    JMP UNKNOWN_17BD69
+
+UNKNOWN_17BB3D:
+    JSR UNKNOWN_17BFE2
+    BCS UNKNOWN_17BAF7
+    JSR UNKNOWN_17BFEF
+    BCS UNKNOWN_17BAF7
+    JSR UNKNOWN_17BF58
+    BCS UNKNOWN_17BAF7
+    LDA #$49
+    LDY #$00
+    LDX #$20
+    JMP UNKNOWN_17BD69
+
+UNKNOWN_17BB55:
+    JSR UNKNOWN_17BFE2
+    BCS UNKNOWN_17BAF7
+    LDY $54
+    LDA $0618,Y
+    STA $60
+    LDA $0619,Y
+    STA $61
+    LDY #$05
+    LDA ($60),Y
+    INY
+    ORA ($60),Y
+    BEQ UNKNOWN_17BAF7
+    LDA #$4D
+    LDY #$00
+    LDX #$40
+    JMP UNKNOWN_17BD7F
+
+UNKNOWN_17BB78:
+    LDY $54
+    LDA $061E,Y
+    ORA #$08
+    STA $061E,Y
+    RTS
+
+UNKNOWN_17BB83:
+    LDA #$4F
+    LDY #$0A
+    LDX #$10
+    JMP UNKNOWN_17BD7F
+
+UNKNOWN_17BB8C:
+    JSR UNKNOWN_17BFE6
+    BCS UNKNOWN_17BB9A
+    LDA #$17
+    LDY #$0A
+    LDX #$04
+    JMP UNKNOWN_17BD7F
+
+UNKNOWN_17BB9A:
+    JMP UNKNOWN_17BDD8
+
+UNKNOWN_17BB9D:
+    JSR UNKNOWN_17BFE2
+    BCS UNKNOWN_17BB9A
+    JSR UNKNOWN_17BFEF
+    BCS UNKNOWN_17BB9A
+    LDA #$4E
+    LDY #$00
+    LDX #$20
+    JMP UNKNOWN_17BD7F
+
+UNKNOWN_17BBB0:
+    JSR UNKNOWN_17BFE2
+    BCS UNKNOWN_17BB9A
+    JSR UNKNOWN_17BFEF
+    BCS UNKNOWN_17BB9A
+    LDA #$19
+    LDY #$00
+    LDX #$40
+    JSR UNKNOWN_17BD69
+    BCS @LOCAL_1
+    LDX $54
+    LDY #$09
+    JSR UNKNOWN_17BF00
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17BBCD:
+    LDY $54
+    LDA $0611,Y
+    CMP #$01
+    BNE @LOCAL_1
+    LDA $061E,Y
+    AND #$02
+    BNE @LOCAL_1
+    LDA $061E,Y
+    ORA #$02
+    STA $061E,Y
+    LDA #$74
+    JMP UNKNOWN_17A3F8
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17BBEB:
+    JSR UNKNOWN_17BF66
+    BCS UNKNOWN_17BB9A
+    LDA #$67
+    LDY #$00
+    LDX #$04
+    JMP UNKNOWN_17BD69
+
+UNKNOWN_17BBF9:
+    LDA #$5D
+    LDY #$0A
+    LDX #$02
+    JMP UNKNOWN_17BD95
+
+UNKNOWN_17BC02:
+    LDA #$61
+    LDY #$0A
+    LDX #$10
+    JMP UNKNOWN_17BD95
+
+UNKNOWN_17BC0B:
+    LDA #$60
+    LDY #$0A
+    LDX #$20
+    JMP UNKNOWN_17BD95
+
+UNKNOWN_17BC14:
+    LDA #$70
+    LDY #$0A
+    LDX #$02
+    JMP UNKNOWN_17BDAB
+
+UNKNOWN_17BC1D:
+    LDA #$5E
+    LDY #$0A
+    LDX #$0C
+    JMP UNKNOWN_17BD95
+
+UNKNOWN_17BC26:
+    LDA #$69
+    LDY #$02
+    LDX #$10
+    JMP UNKNOWN_17BDAB
+
+UNKNOWN_17BC2F:
+    LDA #$71
+    LDY #$0A
+    LDX #$40
+    JMP UNKNOWN_17BD95
+
+UNKNOWN_17BC38:
+    LDY $54
+    LDA $0601,Y
+    AND #$80
+    BEQ @LOCAL_1
+    LDA #$00
+    STA $0601,Y
+    LDA #$FF
+    STA $4E
+    STA $4F
+    LDX $54
+    LDY #$03
+    JSR UNKNOWN_17BEF2
+    LDX #$0A
+    LDA #$62
+    JMP UNKNOWN_17BD5B
+@LOCAL_1:
+    JMP UNKNOWN_17BDD8
+
+UNKNOWN_17BC5D:
+    LDX $56
+    CPX #$06
+    BEQ @LOCAL_2
+    LDA #$19
+    JSR UNKNOWN_F255
+    LDA $078C
+    PHA
+    LDX #$00
+    JSR UNKNOWN_F26B
+    LDA #$03
+    STA $07F0
+    LDX #$38
+    JSR UNKNOWN_F25E
+    PLA
+    CMP $078C
+    BEQ @LOCAL_1
+    STA $07F5
+@LOCAL_1:
+    RTS
+@LOCAL_2:
+    LDA #$19
+    JSR UNKNOWN_F255
+    SEC
+    LDA $55
+    SBC #$9E
+    TAX
+    JSR UNKNOWN_F26B
+    LDA #$03
+    STA $07F0
+    JSR UNKNOWN_17B6E8
+    LDA $55
+    JSR UNKNOWN_17A3F8
+    LDA #$2C
+    JSR UNKNOWN_F255
+    LDX $55
+    INX
+    CPX #$A9
+    BEQ @LOCAL_3
+    STX $55
+    RTS
+@LOCAL_3:
+    JSR UNKNOWN_17B5FD
+    LDA #$FF
+    JSR UNKNOWN_F255
+    LDX #$C8
+    JSR UNKNOWN_F25E
+    LDX #$A9
+@LOCAL_4:
+    STX $55
+    TXA
+    JSR UNKNOWN_17A3F8
+    LDX $55
+    INX
+    CPX #$AC
+    BNE @LOCAL_4
+    LDY #$80
+    JMP UNKNOWN_17B3DD
+
+UNKNOWN_17BCD0:
+    LDX #$0A
+    LDY $54
+    LDA $0605,Y
+    ORA $0606,Y
+    BEQ @LOCAL_2
+    SEC
+    LDA $0605,Y
+    TAX
+    SBC #$0A
+    LDA $0606,Y
+    SBC #$00
+    BCC @LOCAL_1
+    LDX #$0A
+@LOCAL_1:
+    STX $0590
+    LDX #$00
+    STX $0591
+    SEC
+    LDA $0605,Y
+    SBC $0590
+    STA $0605,Y
+    LDA $0606,Y
+    SBC $0591
+    STA $0606,Y
+    LDA #$48
+    JSR UNKNOWN_17A3F8
+    LDA $0590
+    STA $60
+    LDA $0591
+    STA $61
+    LDX $53
+    LDY #$05
+    JSR UNKNOWN_17BEF2
+    LDA $53
+    STA $54
+    LDX #$0A
+    LDA #$3D
+    JMP UNKNOWN_17BD5B
+@LOCAL_2:
+    JMP UNKNOWN_17BDD8
+
+UNKNOWN_17BD2B:
+    LDY $54
+    BMI @LOCAL_1
+    JSR UNKNOWN_17BFAA
+    BCS @LOCAL_1
+    JSR UNKNOWN_17B4FC
+    JSR UNKNOWN_17AACC
+    LDA #$81
+    JMP UNKNOWN_17A3F8
+@LOCAL_1:
+    LDA #$59
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17BD44:
+    LDY $54
+    LDA $0601,Y
+    AND #$08
+    BNE @LOCAL_1
+    LDA $0601,Y
+    ORA #$08
+    STA $0601,Y
+    LDA #$39
+    JSR UNKNOWN_17A3F8
+@LOCAL_1:
+    RTS
+
+UNKNOWN_17BD5B:
+    PHA
+    TXA
+    BEQ @LOCAL_1
+    JSR UNKNOWN_F41F
+@LOCAL_1:
+    JSR UNKNOWN_F5E5
+    PLA
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17BD69:
+    PHA
+    JSR UNKNOWN_17BDCC
+    LDA $0601,Y
+    AND $60
+    BNE UNKNOWN_17BDC6
+    LDA $0601,Y
+    ORA $60
+    STA $0601,Y
+    JMP UNKNOWN_17BDBE
+
+UNKNOWN_17BD7F:
+    PHA
+    JSR UNKNOWN_17BDCC
+    LDA $061E,Y
+    AND $60
+    BNE UNKNOWN_17BDC6
+    LDA $061E,Y
+    ORA $60
+    STA $061E,Y
+    JMP UNKNOWN_17BDBE
+
+UNKNOWN_17BD95:
+    PHA
+    JSR UNKNOWN_17BDCC
+    LDA $0601,Y
+    AND $60
+    BEQ UNKNOWN_17BDC6
+    LDA $0601,Y
+    AND $61
+    STA $0601,Y
+    JMP UNKNOWN_17BDBE
+
+UNKNOWN_17BDAB:
+    PHA
+    JSR UNKNOWN_17BDCC
+    LDA $061E,Y
+    AND $60
+    BEQ UNKNOWN_17BDC6
+    LDA $061E,Y
+    AND $61
+    STA $061E,Y
+
+UNKNOWN_17BDBE:
+    LDX $58
+    PLA
+    JSR UNKNOWN_17BD5B
+    CLC
+    RTS
+
+UNKNOWN_17BDC6:
+    PLA
+    JSR UNKNOWN_17BDD8
+    SEC
+    RTS
+
+UNKNOWN_17BDCC:
+    STX $60
+    TXA
+    EOR #$FF
+    STA $61
+    STY $58
+    LDY $54
+    RTS
+
+UNKNOWN_17BDD8:
+    LDA #$55
+    JMP UNKNOWN_17A3F8
+
+UNKNOWN_17BDDD:
+    LDA $4E
+    STA $60
+    LDA $4F
+    STA $61
+    JMP UNKNOWN_F2ED
+
+UNKNOWN_17BDE8:
+    JSR UNKNOWN_17BF2C
+
+UNKNOWN_17BDEB:
+    CLC
+    LDA $0600,X
+    ADC $60
+    STA $66
+    LDA $0601,X
+    ADC $61
+    STA $67
+    BCC @LOCAL_1
+    LDA #$FF
+    STA $66
+    STA $67
+@LOCAL_1:
+    SEC
+    LDA $64
+    SBC $66
+    LDA $65
+    SBC $67
+    BCS @LOCAL_2
+    LDA $64
+    STA $66
+    LDA $65
+    STA $67
+@LOCAL_2:
+    SEC
+    LDA $66
+    SBC $0600,X
+    STA $0590
+    LDA $67
+    SBC $0601,X
+    STA $0591
+    BCC @LOCAL_3
+    ORA $0590
+    BEQ @LOCAL_3
+    LDA $66
+    STA $0600,X
+    LDA $67
+    STA $0601,X
+    RTS
+@LOCAL_3:
+    JMP UNKNOWN_17BFD8
+
+UNKNOWN_17BE3B:
+    JSR UNKNOWN_17BF2C
+    CLC
+    LDA $0600,X
+    ADC $60
+    STA $66
+    BCC @LOCAL_1
+    LDA #$FF
+    STA $66
+@LOCAL_1:
+    SEC
+    LDA $64
+    SBC $66
+    BCS @LOCAL_2
+    LDA $64
+    STA $66
+@LOCAL_2:
+    LDA #$00
+    STA $0591
+    SEC
+    LDA $66
+    SBC $0600,X
+    STA $0590
+    BCC @LOCAL_3
+    BEQ @LOCAL_3
+    LDA $66
+    STA $0600,X
+    RTS
+@LOCAL_3:
+    JMP UNKNOWN_17BFD8
+
+UNKNOWN_17BE72:
+    JSR UNKNOWN_17BF2C
+    SEC
+    LDA $0600,X
+    SBC $60
+    STA $66
+    LDA $0601,X
+    SBC $61
+    STA $67
+    BCS @LOCAL_1
+    LDA #$00
+    STA $66
+    STA $67
+@LOCAL_1:
+    CPY #$03
+    BEQ @LOCAL_2
+    CPY #$05
+    BEQ @LOCAL_2
+    LDA $66
+    ORA $67
+    BNE @LOCAL_2
+    LDA #$01
+    STA $66
+@LOCAL_2:
+    SEC
+    LDA $0600,X
+    SBC $66
+    STA $0590
+    LDA $0601,X
+    SBC $67
+    STA $0591
+    BCC @LOCAL_3
+    ORA $0590
+    BEQ @LOCAL_3
+    LDA $66
+    STA $0600,X
+    LDA $67
+    STA $0601,X
+    RTS
+@LOCAL_3:
+    JMP UNKNOWN_17BFD8
+
+UNKNOWN_17BEC4:
+    JSR UNKNOWN_17BF2C
+    SEC
+    LDA $0600,X
+    SBC $60
+    STA $66
+    BEQ @LOCAL_1
+    BCS @LOCAL_2
+@LOCAL_1:
+    LDA #$01
+    STA $66
+@LOCAL_2:
+    LDA #$00
+    STA $0591
+    SEC
+    LDA $0600,X
+    SBC $66
+    STA $0590
+    BEQ @LOCAL_3
+    BCC @LOCAL_3
+    LDA $66
+    STA $0600,X
+    RTS
+@LOCAL_3:
+    JMP UNKNOWN_17BFD8
+
+UNKNOWN_17BEF2:
+    JSR UNKNOWN_17BF2C
+    LDA $62
+    STA $64
+    LDA $63
+    STA $65
+    JMP UNKNOWN_17BDEB
+
+UNKNOWN_17BF00:
+    TXA
+    PHA
+    JSR UNKNOWN_17BF2C
+    PLA
+    TAX
+    LDA $62
+    STA $60
+    LDA $63
+    STA $61
+    JSR UNKNOWN_F2ED
+    JMP UNKNOWN_17BDE8
+
+UNKNOWN_17BF15:
+    TXA
+    PHA
+    JSR UNKNOWN_17BF2C
+    PLA
+    TAX
+    LDA $63
+    LSR
+    STA $61
+    LDA $62
+    ROR
+    STA $60
+    JSR UNKNOWN_F2ED
+    JMP UNKNOWN_17BE72
+
+UNKNOWN_17BF2C:
+    LDA $0618,X
+    STA $66
+    LDA $0619,X
+    STA $67
+    LDA ($66),Y
+    STA $62
+    ASL
+    STA $64
+    INY
+    LDA ($66),Y
+    AND #$03
+    STA $63
+    ROL
+    STA $65
+    BCC @LOCAL_1
+    LDA #$FF
+    STA $64
+    STA $65
+@LOCAL_1:
+    DEY
+    STX $68
+    TYA
+    CLC
+    ADC $68
+    TAX
+    RTS
+
+UNKNOWN_17BF58:
+    LDY $53
+    LDA $060D,Y
+    TAX
+    LDY $54
+    LDA $060E,Y
+    JMP UNKNOWN_17BF8C
+
+UNKNOWN_17BF66:
+    LDY $53
+    LDA $060D,Y
+    TAX
+    LDY $54
+    LDA $060F,Y
+    JMP UNKNOWN_17BF8C
+
+UNKNOWN_17BF74:
+    LDA $0602,Y
+    AND $57
+    BEQ @LOCAL_1
+    LSR $61
+    ROR $60
+    LDA $60
+    ORA $61
+    BNE @LOCAL_1
+    INC $60
+@LOCAL_1:
+    LDA #$00
+    STA $57
+    RTS
+
+UNKNOWN_17BF8C:
+    LSR
+    STA $60
+    STX $64
+    TXA
+    SEC
+    SBC $60
+    BCS @LOCAL_1
+    LDA #$00
+@LOCAL_1:
+    STA $61
+    LDA #$00
+    STA $60
+    STA $62
+    JSR UNKNOWN_F13D
+    JSR UNKNOWN_F1ED
+    CMP $60
+    RTS
+
+UNKNOWN_17BFAA:
+    JSR UNKNOWN_17AABC
+    LDY #$00
+@LOCAL_1:
+    TYA
+    PHA
+    LDA ($60),Y
+    BEQ @LOCAL_2
+    JSR UNKNOWN_17AAA4
+    JSR UNKNOWN_F247
+    LDY #$05
+    LDA ($62),Y
+    TAX
+    LDY #$02
+    LDA ($62),Y
+    JSR UNKNOWN_F239
+    AND #$40
+    BNE @LOCAL_3
+@LOCAL_2:
+    PLA
+    TAY
+    INY
+    CPY #$08
+    BNE @LOCAL_1
+    SEC
+    RTS
+@LOCAL_3:
+    PLA
+    TAY
+    CLC
+    RTS
+
+UNKNOWN_17BFD8:
+    LDA #$00
+    STA $0590
+    STA $0591
+    CLC
+    RTS
+
+UNKNOWN_17BFE2:
+    LDA $54
+    BPL UNKNOWN_17BFEB
+UNKNOWN_17BFE6:
+    LDA $56
+    LSR
+    BNE UNKNOWN_17BFFA
+UNKNOWN_17BFEB:
+    CLC
+    RTS
+UNKNOWN_17BFFA:
+    SEC
+    RTS
+
+UNKNOWN_17BFEF:
+    LDY $54
+    BMI @LOCAL_1
+    LDA $0611,Y
+    CMP #$06
+    BNE @LOCAL_1
+    SEC
+    RTS
+@LOCAL_1:
+    CLC
+    RTS
