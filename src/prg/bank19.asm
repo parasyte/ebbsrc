@@ -2,6 +2,7 @@
 
 .INCLUDE "common.asm"
 
+UNKNOWN_19A000:
     LDA $FC
     CMP #$00
     BNE UNKNOWN_19A074

@@ -1278,7 +1278,7 @@ UNKNOWN_E7F9:
 UNKNOWN_E7FC:
     LDA $25
     BNE @UNKNOWN0
-    JMP UNKNOWN_F1ED
+    JMP RAND
 @UNKNOWN0:
     PLA
     PLA
@@ -2293,7 +2293,7 @@ UNKNOWN_EEF0:
     STA $60
     ASL $60
     BCC @UNKNOWN3
-    JSR UNKNOWN_F1ED
+    JSR RAND
     AND #$C0
     BNE @UNKNOWN3
     JSR UNKNOWN_EE8E
@@ -2408,7 +2408,7 @@ UNKNOWN_EF7C:
     LDX #$00
     STX $DA
 @UNKNOWN8:
-    JSR UNKNOWN_F1ED
+    JSR RAND
     JSR UNKNOWN_FD41
     LDA $DA
     BNE @UNKNOWN10
@@ -2732,19 +2732,39 @@ UNKNOWN_F1A4:
     BCC @UNKNOWN0
     RTS
 
-UNKNOWN_F1ED:
+; This is the PRNG.
+;
+; It is closely related to LCGs with parameters:
+;
+; - m = 65,536
+; - a = 256
+; - c = 25,461
+; - X(0) = undefined
+;
+; The biggest difference is an extra addition operation:
+;
+; ```c
+; static uint16_t state;
+; uint8_t prng() {
+;     state += (state * 256 + 0x6375);
+;     return (state / 256);
+; }
+; ```
+;
+; It has a period of 65,536 and has fairly uniform distribution. (Tested with a simple histogram.)
+RAND:
     CLC
     LDA $26
     ADC $27
-    STA $27
+    STA $27             ; VAR_27 += VAR_26
     CLC
     LDA $26
     ADC #$75
-    STA $26
+    STA $26             ; VAR_26 += #$75 (with carry -> C)
     LDA $27
     ADC #$63
-    STA $27
-    RTS
+    STA $27             ; VAR_27 += #$63 + C
+    RTS                 ; return VAR_27
 
 UNKNOWN_F202:
     JSR UNKNOWN_CEDA
@@ -2947,7 +2967,7 @@ UNKNOWN_F2ED:
     LDA #$64
     STA $64
     JSR UNKNOWN_F13D
-    JSR UNKNOWN_F1ED
+    JSR RAND
     LSR
     PHP
     TAX
@@ -4511,9 +4531,9 @@ UNKNOWN_FDED:
 
 UNKNOWN_FDF3:
     PHA
-    LDA #$FE
+    LDA #.hibyte(@LOCAL_1 - 1)
     PHA
-    LDA #$0C
+    LDA #.lobyte(@LOCAL_1 - 1)
     PHA
     TYA
     PHA
@@ -4526,7 +4546,7 @@ UNKNOWN_FDF3:
     TYA
     LDX #$07
     JMP BANK_SWAP
-
+@LOCAL_1:
     PLA
     LDX #$07
     JMP BANK_SWAP

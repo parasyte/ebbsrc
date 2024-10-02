@@ -144,15 +144,20 @@ UNKNOWN_94D7:
     LDX #$0C
     JSR $6029
     JMP $6034
+
 UNKNOWN_9505:
     JSR $601E
     JMP UNKNOWN_C67A
+
 UNKNOWN_950B:
     JSR $6029
+
 UNKNOWN_950E:
     JSR UNKNOWN_EF34
     LDA #$FF
     JMP UNKNOWN_F0B0
+
+UNKNOWN_9516:
     LDA $48
     ORA $20
     ORA $21
@@ -165,15 +170,15 @@ UNKNOWN_950E:
     JSR UNKNOWN_95D3
     LDX $15
     LDA UNKNOWN_9593,X
-@UNKNOWN1__:
+@UNKNOWN0:
     BNE @UNKNOWN3
     STA $24
-@UNKNOWN1_:
+@UNKNOWN1:
     LDA #$00
     STA $48
 @UNKNOWN2:
     RTS
-@UNKNOWN3:
+@UNKNOWN3:              ; Check encounter...
     TAY
     AND #$07
     BNE @UNKNOWN4
@@ -182,7 +187,7 @@ UNKNOWN_950E:
     LSR
     LSR
     JSR UNKNOWN_E0F2
-    JMP @UNKNOWN1__
+    JMP @UNKNOWN0
 @UNKNOWN4:
     CLC
     ADC $24
@@ -191,9 +196,9 @@ UNKNOWN_950E:
     LDA #$08
 @UNKNOWN5:
     TAX
-    JSR UNKNOWN_F1ED
-    CMP UNKNOWN_958A,X
-    BCS @UNKNOWN1_
+    JSR RAND
+    CMP UNKNOWN_958B - 1,X
+    BCS @UNKNOWN1
     LDX $24
     INX
     CPX #$03
@@ -210,7 +215,7 @@ UNKNOWN_950E:
     ADC #$92
     STA $69
 @UNKNOWN7:
-    JSR UNKNOWN_F1ED
+    JSR RAND
     LSR
     LSR
     LSR
@@ -218,16 +223,49 @@ UNKNOWN_950E:
     TAY
     LDA ($68),Y
     BEQ @UNKNOWN7
-    STA $48
+    STA $48             ; Set enemy group (0x03 = Crow, 0x05 = Centipede, 0x07 = Stray Dog, 0x08 = Wally, 0x09 = The Hippie, 0x0b = Snake)
     LDA #$19
     LDX #$A6
     LDY #$A4
     JSR UNKNOWN_FDF3
-UNKNOWN_958A:
     RTS
 
+; This is the encounter probability table: 0x00..0xff is 0..100%
+; There are 8 possible probability modes:
+;
+; - 32 / 255 = 0.12549019607843137254901960784314%
+; - 21 / 255 = 0.08235294117647058823529411764706%
+; - 16 / 255 = 0.06274509803921568627450980392157%
+; - 13 / 255 = 0.05098039215686274509803921568627%
+; - 10 / 255 = 0.03921568627450980392156862745098%
+; -  8 / 255 = 0.03137254901960784313725490196078%
+; -  6 / 255 = 0.02352941176470588235294117647059%
+; -  5 / 255 = 0.01960784313725490196078431372549%
+;
+; In other words:
+;
+; - Mode 0 has a 1/8 chance to encounter.
+; - Mode 1 has a 1/12 chance to encounter.
+; - Mode 2 has a 1/16 chance to encounter.
+; - Mode 3 has a 1/20 chance to encounter.
+; - Mode 4 has a 1/25 chance to encounter.
+; - Mode 5 has a 1/32 chance to encounter.
+; - Mode 6 has a 1/42 chance to encounter.
+; - Mode 7 has a 1/51 chance to encounter.
+;
+; The encounter rate starts at a mode determined by the encounter zone (see `UNKNOWN_9593`). After
+; each encounter, the mode is incremented by 1 (capped at a maximum of 2) to lower the encounter
+; frequency.
+;
+; A better system would define an encounter range in terms of steps. Say, "8-16 steps", which sets
+; a lower bound where an encounter cannot occur earlier than 8 steps after leaving a battle.
 UNKNOWN_958B:
     .BYTE $20, $15, $10, $0D, $0A, $08, $06, $05
+
+; Seems to be a lookup table for encounter zones?
+; Bits 7..3 are multiplied by 2 and used to lookup a random encounter ID (of some sort) at $14:9200.
+; Bits 2..0 specify the encounter rate mode (see `UNKNOWN_958B`).
+; A value of 0 has no encounters.
 UNKNOWN_9593:
     .BYTE $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $0C, $11, $E8, $26, $2D
     .BYTE $34, $3D, $43, $4D, $55, $5D, $65, $00, $00, $00, $00, $00, $6C, $74, $7C, $00
@@ -1304,8 +1342,8 @@ UNKNOWN_9D60:
     STX $DA
     JSR UNKNOWN_EDDC
     LDA #$19
-    LDX #$FF
-    LDY #$9F
+    LDX #.lobyte(UNKNOWN_19A000 - 1)
+    LDY #.hibyte(UNKNOWN_19A000 - 1)
     JSR UNKNOWN_FDF3
     RTS
 
